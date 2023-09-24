@@ -1,8 +1,11 @@
 # Web2TrabajoEspecial
 Integrantes:
-Orellano Yael Eileen
 
+Orellano Yael Eileen
 Email:yael.e.orellano@gmail.com
+
+Corbellini Joaquin
+Email:Corbellini47@gmail.com
 
 Temática del Trabajo Practico Especial:
 Venta de Viajes
