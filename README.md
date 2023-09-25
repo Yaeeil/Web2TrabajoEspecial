@@ -10,9 +10,7 @@ Email:Corbellini47@gmail.com
 Temática del Trabajo Practico Especial:
 Venta de Viajes
 
-Descripción:Integrantes:
-Orellano Yael Eileen
-Email:yael.e.orellano@gmail.com
+Descripción:
 
 Temática del Trabajo Practico Especial:
 Venta de Viajes
