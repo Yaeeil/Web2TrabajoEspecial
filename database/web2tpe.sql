@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+<<<<<<< HEAD
 -- Tiempo de generación: 30-09-2023 a las 02:56:08
+=======
+-- Tiempo de generación: 25-09-2023 a las 00:03:46
+>>>>>>> 32950893bb905b23af962948d276903e971fa34f
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -33,6 +37,7 @@ CREATE TABLE `clientes` (
   `Apellido` varchar(100) NOT NULL,
   `CorreoElectronico` varchar(100) NOT NULL,
   `FechaNacimiento` date NOT NULL,
+<<<<<<< HEAD
   `DNI` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabla de Clientes para el TPE';
 
@@ -57,6 +62,13 @@ INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`,
 (14, 'Paula', 'Vargas', 'paula.vargas@email.com', '1994-04-09', '45678912'),
 (15, 'Miguel', 'Torres', 'miguel.torres@email.com', '1990-10-25', '23456789');
 
+=======
+  `DNI` varchar(100) NOT NULL,
+  `Direccion` varchar(100) NOT NULL,
+  `Contraseña` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabla de Clientes para el TPE';
+
+>>>>>>> 32950893bb905b23af962948d276903e971fa34f
 -- --------------------------------------------------------
 
 --
@@ -74,6 +86,7 @@ CREATE TABLE `viajes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+<<<<<<< HEAD
 -- Volcado de datos para la tabla `viajes`
 --
 
@@ -92,6 +105,8 @@ INSERT INTO `viajes` (`ID_Viaje`, `Destino`, `FechaSalida`, `FechaRegreso`, `Des
 (12, 'Nueva York, EE. UU.', '2024-04-10', '2024-04-18', 'Explora la Gran Manzana durante 8 días en Nueva York, Estados Unidos. Visita Times Square, Central Park y disfruta de un espectáculo en Broadway. Precio: $220000.00 por persona.', 220000, 4);
 
 --
+=======
+>>>>>>> 32950893bb905b23af962948d276903e971fa34f
 -- Índices para tablas volcadas
 --
 
@@ -116,13 +131,21 @@ ALTER TABLE `viajes`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
+<<<<<<< HEAD
   MODIFY `ID_Cliente` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+=======
+  MODIFY `ID_Cliente` int(225) NOT NULL AUTO_INCREMENT;
+>>>>>>> 32950893bb905b23af962948d276903e971fa34f
 
 --
 -- AUTO_INCREMENT de la tabla `viajes`
 --
 ALTER TABLE `viajes`
+<<<<<<< HEAD
   MODIFY `ID_Viaje` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+=======
+  MODIFY `ID_Viaje` int(225) NOT NULL AUTO_INCREMENT;
+>>>>>>> 32950893bb905b23af962948d276903e971fa34f
 
 --
 -- Restricciones para tablas volcadas
