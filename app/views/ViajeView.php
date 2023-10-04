@@ -1,7 +1,8 @@
 <?php
 class ViajeView{
+    //hacerle el template 
         public function showDestino($viaje, $valor) {
-            require 'templates/header.php';
+            require_once 'templates/header.phtml';
             echo "<table>";
             echo "<thead><tr><th>Nombre del Destino</th><th>Ver Detalle</th></tr></thead>";
             echo "<tbody>";
@@ -14,6 +15,7 @@ class ViajeView{
             }
             echo "</tbody>";
             echo "</table>";
+            require_once 'templates/footer.phtml';
         }
     
     
@@ -21,7 +23,7 @@ class ViajeView{
 
     
     public function showDetailsViaje($viajes, $cliente) {
-        require 'templates/header.php';
+        require_once 'templates/header.phtml';
         echo "<ul>";
     
         echo "problema siempre queda en 1: " . "cliente id de cliente es: " . $cliente->ID_Cliente;
@@ -36,19 +38,19 @@ class ViajeView{
         echo '<li class="list-group-item item-task">Nombre Cliente: ' . $cliente->Nombre . '</li>';
         echo '<li class="list-group-item item-task">Apellido Cliente: ' . $cliente->Apellido . '</li>';
         echo "</ul>";
-        require 'templates/footer.php';
+        require_once 'templates/footer.phtml';
     }
     
     
 
     public function showError($error) {
-        require 'templates/header.php';
+        require_once 'templates/header.phtml';
         
         echo "
             <div class='alert alert-danger' role='alert'>
                 $error
             </div> 
         ";
-        require 'templates/footer.php';
+        require_once 'templates/footer.phtml';
     }
 }

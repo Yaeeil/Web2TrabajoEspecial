@@ -12,7 +12,7 @@ class ViajeController {
         
     }
 
-    public function showDestino() {
+    public function showDestinos() {
    
         $viaje = $this->model->getDestino();
         $valor=$this->model->getIdViaje();
@@ -21,10 +21,9 @@ class ViajeController {
     
 
     public function showDetails($id) {
-        // obtengo tareas del controlador
         $viaje = $this->model->getDetails($id);
-        $idCliente=$this->model->getIdCliente($id);
-        $cliente=$this->model->getNombreCliente($idCliente);
+       $idCliente=$this->model->getIdCliente($id);
+       $cliente=$this->model->getInfoCliente($idCliente);
         
         // muestro las tareas desde la vista
         $this->view->showDetailsViaje($viaje, $cliente);

@@ -18,8 +18,8 @@ body {
     text-decoration: none;
 }
 
-.navbar a:hover {
-    background-color: #ddd;
+.barraNav a:hover {
+    background-color: #fdfafa;
     color: black;
 }
 
@@ -30,6 +30,7 @@ body {
 }
 
 .container{
+    
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
