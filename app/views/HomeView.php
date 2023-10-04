@@ -2,7 +2,7 @@
 
 class HomeView {
     public function showHome() {
-        require_once "templates/header.php";
+        require_once "templates/header.phtml";
         ?>
 
         <h2>Descubre el Mundo con Nosotros</h2>
@@ -26,6 +26,6 @@ class HomeView {
         </p>
 
         <?php
-        require_once "templates/footer.php";
+        require_once "templates/footer.phtml";
     }
 }

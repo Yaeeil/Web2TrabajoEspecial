@@ -1,7 +1,7 @@
 <?php
 class ViajeView{
         public function showDestino($viaje, $valor) {
-            require 'templates/header.php';
+            require 'templates/header.phtml';
             echo "<table>";
             echo "<thead><tr><th>Nombre del Destino</th><th>Ver Detalle</th></tr></thead>";
             echo "<tbody>";
@@ -9,7 +9,7 @@ class ViajeView{
                 $id = $valor[$index]->ID_Viaje;
                 echo '<tr>';
                 echo '<td>' . $viaj->Destino . '</td>';
-                echo '<td><a href="' . BASE_URL . 'detalle/' . $id. '" class="btn btn-primary btn-sm">Ver Detalle</a></td>';
+                echo '<td><a href="' . BASE_URL . 'viaje/' . $id. '" class="btn btn-primary btn-sm">Ver Detalle</a></td>';
                 echo '</tr>';
             }
             echo "</tbody>";
@@ -21,11 +21,9 @@ class ViajeView{
 
     
     public function showDetailsViaje($viajes, $cliente) {
-        require 'templates/header.php';
+        require 'templates/header.phtml';
         echo "<ul>";
-    
-        echo "problema siempre queda en 1: " . "cliente id de cliente es: " . $cliente->ID_Cliente;
-        echo "deberia ser: " . $viajes->id_Cliente;
+        var_dump($cliente);
         echo '<li class="list-group-item item-task">ID Viaje: ' . $viajes->ID_Viaje . '</li>';
         echo '<li class="list-group-item item-task">Destino: ' . $viajes->Destino . '</li>';
         echo '<li class="list-group-item item-task">Fecha de Salida: ' . $viajes->FechaSalida . '</li>';
@@ -36,7 +34,7 @@ class ViajeView{
         echo '<li class="list-group-item item-task">Nombre Cliente: ' . $cliente->Nombre . '</li>';
         echo '<li class="list-group-item item-task">Apellido Cliente: ' . $cliente->Apellido . '</li>';
         echo "</ul>";
-        require 'templates/footer.php';
+        require 'templates/footer.phtml';
     }
     
     
