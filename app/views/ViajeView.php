@@ -2,11 +2,7 @@
 class ViajeView{
     //hacerle el template 
         public function showDestino($viaje, $valor) {
-<<<<<<< HEAD
             require 'templates/header.phtml';
-=======
-            require_once 'templates/header.phtml';
->>>>>>> e06f4959fb4f06a872e84d082d6bec172abc1f78
             echo "<table>";
             echo "<thead><tr><th>Nombre del Destino</th><th>Ver Detalle</th></tr></thead>";
             echo "<tbody>";
@@ -27,11 +23,7 @@ class ViajeView{
 
     
     public function showDetailsViaje($viajes, $cliente) {
-<<<<<<< HEAD
         require 'templates/header.phtml';
-=======
-        require_once 'templates/header.phtml';
->>>>>>> e06f4959fb4f06a872e84d082d6bec172abc1f78
         echo "<ul>";
         var_dump($cliente);
         echo '<li class="list-group-item item-task">ID Viaje: ' . $viajes->ID_Viaje . '</li>';
@@ -44,11 +36,7 @@ class ViajeView{
         echo '<li class="list-group-item item-task">Nombre Cliente: ' . $cliente->Nombre . '</li>';
         echo '<li class="list-group-item item-task">Apellido Cliente: ' . $cliente->Apellido . '</li>';
         echo "</ul>";
-<<<<<<< HEAD
         require 'templates/footer.phtml';
-=======
-        require_once 'templates/footer.phtml';
->>>>>>> e06f4959fb4f06a872e84d082d6bec172abc1f78
     }
     
     

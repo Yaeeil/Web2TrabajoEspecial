@@ -63,12 +63,10 @@ class ViajeModel {
         $cliente = $queryCliente->fetch(PDO::FETCH_OBJ);
     
     // foreach($viajes as $viaje){ este lo probe y no anda usandolo en la linea 49
-         $query = $this->db->prepare('SELECT Nombre, Apellido, ID_Cliente FROM clientes WHERE ID_Cliente= ?');
-         $query->execute([$viajes->id_Cliente]);
+        $query = $this->db->prepare('SELECT Nombre, Apellido, ID_Cliente FROM clientes WHERE ID_Cliente= ?');
         $cliente = $query->fetch(PDO::FETCH_OBJ);
         return $cliente;
         
-       
     }
     
     
