@@ -20,7 +20,7 @@ switch ($params[0]) {
         break;
     case 'viajes':
         $controller = new ViajeController();
-        $controller->showDestinos();
+        $controller->showDestino();
         break; 
     case 'clientes':
         $controller = new ClienteController();

@@ -25,7 +25,6 @@ class ViajeView{
     public function showDetailsViaje($viajes, $cliente) {
         require 'templates/header.phtml';
         echo "<ul>";
-        var_dump($cliente);
         echo '<li class="list-group-item item-task">ID Viaje: ' . $viajes->ID_Viaje . '</li>';
         echo '<li class="list-group-item item-task">Destino: ' . $viajes->Destino . '</li>';
         echo '<li class="list-group-item item-task">Fecha de Salida: ' . $viajes->FechaSalida . '</li>';

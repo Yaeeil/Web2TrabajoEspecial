@@ -2,7 +2,6 @@
 
 class HomeView {
     public function showHome() {
-<<<<<<< HEAD
         require_once "templates/header.phtml";
         ?>
 
@@ -28,8 +27,5 @@ class HomeView {
 
         <?php
         require_once "templates/footer.phtml";
-=======
-        require_once "templates/Home.phtml";
->>>>>>> e06f4959fb4f06a872e84d082d6bec172abc1f78
     }
 }
