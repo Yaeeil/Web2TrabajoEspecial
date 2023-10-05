@@ -12,20 +12,18 @@ class ViajeController {
         
     }
 
-    public function showDestinos() {
-   
+    public function showDestino() {
+
         $viaje = $this->model->getDestino();
         $valor=$this->model->getIdViaje();
         $this->view->showDestino($viaje, $valor);
     }
-    
 
-    public function showDetails($id) {
+
+    public function showDetailsViaje($id) {
+   
         $viaje = $this->model->getDetails($id);
-       $idCliente=$this->model->getIdCliente($id);
-       $cliente=$this->model->getInfoCliente($idCliente);
-        
-        // muestro las tareas desde la vista
+        $cliente = $this->model->getCliente($viaje->id_Cliente);
         $this->view->showDetailsViaje($viaje, $cliente);
     }
 }

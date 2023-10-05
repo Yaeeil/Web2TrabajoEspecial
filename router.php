@@ -1,5 +1,6 @@
 <?php
 require_once './app/controllers/HomeController.php';
+require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php'; // Agrega esta línea
 require_once './app/controllers/SesionController.php';
 
@@ -19,11 +20,19 @@ switch ($params[0]) {
         break;
     case 'viajes':
         $controller = new ViajeController();
-        $controller->showDestinos();
+        $controller->showDestino();
         break; 
-    case 'detalle':
+    case 'clientes':
+        $controller = new ClienteController();
+        $controller->showAllClientes();
+        break; 
+    case 'viaje':
         $controller = new ViajeController();
-        $controller->showDetails($params[1]);
+        $controller->showDetailsViaje($params[1]);
+        break; 
+    case 'cliente':
+        $controller = new ClienteController();
+        $controller->showDetailsCliente($params[1]);
         break; 
         case 'logIn':
             $controller= new SesionController();

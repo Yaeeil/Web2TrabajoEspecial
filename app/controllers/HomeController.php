@@ -11,7 +11,6 @@ class HomeController {
     }
 
     public function showHome() {
-        // muestro el home desde la vista
         $this->view->showHome();
     }
 

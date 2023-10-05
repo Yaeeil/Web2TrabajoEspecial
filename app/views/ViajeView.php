@@ -2,7 +2,7 @@
 class ViajeView{
     //hacerle el template 
         public function showDestino($viaje, $valor) {
-            require_once 'templates/header.phtml';
+            require 'templates/header.phtml';
             echo "<table>";
             echo "<thead><tr><th>Nombre del Destino</th><th>Ver Detalle</th></tr></thead>";
             echo "<tbody>";
@@ -10,7 +10,7 @@ class ViajeView{
                 $id = $valor[$index]->ID_Viaje;
                 echo '<tr>';
                 echo '<td>' . $viaj->Destino . '</td>';
-                echo '<td><a href="' . BASE_URL . 'detalle/' . $id. '" class="btn btn-primary btn-sm">Ver Detalle</a></td>';
+                echo '<td><a href="' . BASE_URL . 'viaje/' . $id. '" class="btn btn-primary btn-sm">Ver Detalle</a></td>';
                 echo '</tr>';
             }
             echo "</tbody>";
@@ -23,11 +23,9 @@ class ViajeView{
 
     
     public function showDetailsViaje($viajes, $cliente) {
-        require_once 'templates/header.phtml';
+        //esto como lo meto en el template ? tipo que hago con los parametros
+        require 'templates/header.phtml';
         echo "<ul>";
-    
-        echo "problema siempre queda en 1: " . "cliente id de cliente es: " . $cliente->ID_Cliente;
-        echo "deberia ser: " . $viajes->id_Cliente;
         echo '<li class="list-group-item item-task">ID Viaje: ' . $viajes->ID_Viaje . '</li>';
         echo '<li class="list-group-item item-task">Destino: ' . $viajes->Destino . '</li>';
         echo '<li class="list-group-item item-task">Fecha de Salida: ' . $viajes->FechaSalida . '</li>';
@@ -38,7 +36,7 @@ class ViajeView{
         echo '<li class="list-group-item item-task">Nombre Cliente: ' . $cliente->Nombre . '</li>';
         echo '<li class="list-group-item item-task">Apellido Cliente: ' . $cliente->Apellido . '</li>';
         echo "</ul>";
-        require_once 'templates/footer.phtml';
+        require 'templates/footer.phtml';
     }
     
     
