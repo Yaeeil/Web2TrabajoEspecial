@@ -1,8 +1,10 @@
 <?php
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
-require_once './app/controllers/ViajeController.php'; // Agrega esta línea
+require_once './app/controllers/ViajeController.php'; 
 require_once './app/controllers/SesionController.php';
+require_once './help/SesionHelper.php';
+
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
@@ -34,10 +36,19 @@ switch ($params[0]) {
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break; 
-        case 'logIn':
-            $controller= new SesionController();
-            $controller-> showSesion();
-            break;
+       case 'logIn':
+        $controller = new SesionController();
+        $controller->showLogin(); 
+        break;
+        case 'autorizacion':
+        $controller = new SesionController();
+        $controller->auth();
+        break;
+        case 'logout':
+        $controller = new SesionController();
+        $controller->logout();
+        break;
+        
     default:
         echo "404 Page Not Found";
         break;

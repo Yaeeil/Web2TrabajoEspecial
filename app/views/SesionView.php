@@ -1,8 +1,6 @@
 <?php
 class SesionView {
-    public function showSesion() {
-    
-        require_once "templates/Sesion.phtml";
-        
-    }
+    public function showLogin($error = null) {
+        require './templates/logIn.phtml';
+}
 }
