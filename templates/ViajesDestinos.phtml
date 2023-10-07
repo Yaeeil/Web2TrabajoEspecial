@@ -1,0 +1,18 @@
+<?php require 'templates/header.phtml'; ?>
+<table>
+    <thead>
+        <tr>
+            <th>Nombre del Destino</th>
+            <th>Ver Detalle</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($viajes as $viaje) { ?>
+            <tr>
+                <td><?php echo $viaje->Destino; ?></td>
+                <td><a href="<?php echo BASE_URL . 'viaje/' . $viaje->ID_Viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+<?php require_once 'templates/footer.phtml'; ?>

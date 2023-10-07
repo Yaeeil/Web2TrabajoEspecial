@@ -10,8 +10,8 @@ class SesionHelper {
 
     public static function login($user) {
         SesionHelper::init();
-        $_SESSION['id_usuario'] = $user->id;
-        $_SESSION['NombreUsuario'] = $user->name; 
+        $_SESSION['id_usuario'] = $user->id_usuario;
+        $_SESSION['nombreUsuario'] = $user->NombreUsuario; 
     }
 
     public static function logout() {

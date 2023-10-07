@@ -1,0 +1,13 @@
+<?php require_once 'templates/header.phtml'; ?>
+<ul> //anda por mas que marque asi
+    <li class="list-group-item item-task">ID Viaje: <?php echo $datosViaje->ID_Viaje; ?></li>
+    <li class="list-group-item item-task">Destino: <?php echo $datosViaje->Destino; ?></li>
+    <li class="list-group-item item-task">Fecha de Salida: <?php echo $datosViaje->FechaSalida; ?></li>
+    <li class="list-group-item item-task">Fecha de Regreso: <?php echo $datosViaje->FechaRegreso; ?></li>
+    <li class="list-group-item item-task">Descripción: <?php echo $datosViaje->Descripcion; ?></li>
+    <li class="list-group-item item-task">Precio: <?php echo $datosViaje->Precio; ?></li>
+    <li class="list-group-item item-task">ID Cliente: <?php echo $datosViaje->id_Cliente; ?></li>
+    <li class="list-group-item item-task">Nombre Cliente: <?php echo $datosCliente->Nombre; ?></li>
+    <li class="list-group-item item-task">Apellido Cliente: <?php echo $datosCliente->Apellido; ?></li>
+</ul>
+<?php require_once 'templates/footer.phtml'; ?>

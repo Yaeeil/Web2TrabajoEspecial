@@ -13,15 +13,12 @@ class ViajeController {
     }
 
     public function showDestino() {
-
-        $viaje = $this->model->getDestino();
-        $valor=$this->model->getIdViaje();
-        $this->view->showDestino($viaje, $valor);
+        $viajes = $this->model->getDestino();
+        $this->view->showDestino($viajes);
     }
 
 
     public function showDetailsViaje($id) {
-   
         $viaje = $this->model->getDetails($id);
         $cliente = $this->model->getCliente($viaje->id_Cliente);
         $this->view->showDetailsViaje($viaje, $cliente);

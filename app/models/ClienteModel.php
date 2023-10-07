@@ -5,6 +5,7 @@ class clienteModel {
     function __construct() {
         $this->db = new PDO('mysql:host=localhost;dbname=web2tpe;charset=utf8', 'root', '');
     }
+    //cambiale el nombre xq no es viajes pero solo hace este 
     function getAllClientes() {
         $query = $this->db->prepare('SELECT * FROM clientes');
         $query->execute();
@@ -15,7 +16,8 @@ class clienteModel {
         return $viaje;
     }
 
-
+    /*
+//este no
     function getCliente() {
         $query = $this->db->prepare('SELECT nombre FROM clientes');
         $query->execute();
@@ -25,7 +27,7 @@ class clienteModel {
 
         return $cliente;
     }
-
+//este no
     function getIdviaje() {
         $query = $this->db->prepare("SELECT ID_Cliente FROM clientes");
         $query->execute();
@@ -36,6 +38,7 @@ class clienteModel {
         return $viaje;
     }
 
+    //este no
     function getIdCliente($id) {
         $query = $this->db->prepare('SELECT id_Cliente FROM clientes WHERE ID_cliente= :id');
         $query->bindParam(':id', $id, PDO::PARAM_INT);
@@ -47,6 +50,7 @@ class clienteModel {
         return $cliente;
     }
 
+//este no
 
     function getNombreCliente($id) {
         // Primero, obtenemos el ID del cliente asociado al cliente
@@ -69,8 +73,11 @@ class clienteModel {
     }
     
     
+//este no
 
-    function getDetails($id){
+//o sea si pero seria de viajes bro
+*/
+function getDetails($id){
         $query = $this->db->prepare("SELECT * FROM clientes WHERE ID_cliente = :id");
         $query->bindParam(':id', $id, PDO::PARAM_INT);
         $query->execute();
