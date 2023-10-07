@@ -1,18 +1,19 @@
 
 footer {
   
-    background-color: #333;
+    background-color: #03203c;
     color: #fff;
     margin:0px;
     padding: 20px 0;
     text-align: center;
+    margin-top: auto; 
 }
+
 
 footer p {
     margin: 10px 0;
 }
 
-/* Estilos para el enlace de correo */
 footer a {
     color: #380448;
     text-decoration: none;

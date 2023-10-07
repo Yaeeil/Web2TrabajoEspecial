@@ -3,7 +3,8 @@ require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php'; 
 require_once './app/controllers/SesionController.php';
-require_once './help/SesionHelper.php';
+
+
 
 
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -48,7 +49,18 @@ switch ($params[0]) {
         $controller = new SesionController();
         $controller->logout();
         break;
-        
+        case 'agregarViaje':
+            $controller = new ViajeController();
+            $controller->addViaje();
+            break;
+        case 'eliminarViaje':
+            $controller = new ViajeController();
+            $controller->deleteViaje($params[1]);
+            break;
+        case 'actualizarViaje':
+            $controller = new ViajeController();
+            $controller->updateViaje($params[1]);
+            break;
     default:
         echo "404 Page Not Found";
         break;

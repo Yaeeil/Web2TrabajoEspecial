@@ -1,36 +1,42 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
 }
 
 .barraNav {
-    background-color: #333;
+    background-color: #03203c;
     overflow: hidden;
 }
 
 .barraNav a {
     float: left;
     font-size: 16px;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 .barraNav a:hover {
-    background-color: #fdfafa;
-    color: black;
+    background-color: #595b85;
+    color: rgb(255, 255, 255);
 }
 
 .barraNav h1{
     color:white;
-    font-size:200%;
+    font-size:50px;
     text-align: center;
 }
 
+div{
+    padding:0px;
+}
 .container{
-    
+    padding:0px;
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 

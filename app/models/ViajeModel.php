@@ -13,7 +13,7 @@ class ViajeModel {
         $viajes = $query->fetchAll(PDO::FETCH_OBJ);
         return $viajes;
     }
-    //SELECT * FROM viajes
+    
    
     function getCliente($id ){
         $queryCliente = $this->db->prepare("SELECT Nombre, Apellido, id_Cliente FROM clientes WHERE id_Cliente = ? ");
@@ -30,5 +30,27 @@ class ViajeModel {
     
         return $viajes;
     }
+
+    function addViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente) {
+        $query = $this->db->prepare('INSERT INTO viajes (Destino, FechaSalida, FechaRegreso, Descripcion, Precio, id_Cliente) VALUES (?, ?, ?, ?, ?, ?)');
+        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente]);
+        return $this->db->lastInsertId();
+    }
+
+
+    function deleteViaje($id) {
+        $query = $this->db->prepare('DELETE FROM viajes WHERE ID_Viaje = ?');
+        $query->execute([$id]);
+    }
+
+
+    //aca?? o le paso el id para el router o todo para cargar
+  /*  function updateViaje($id) {
+        $query = $this->db->prepare('UPDATE viajes SET Destino = ?, FechaSalida = ?, FechaRegreso = ?, Descripcion = ?, Precio = ?, id_Cliente = ? WHERE ID_Viaje = ?');
+        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente, $id]);
+    }
+    */
+
+    
     
 }
