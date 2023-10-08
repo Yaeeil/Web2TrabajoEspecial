@@ -3,11 +3,12 @@ require_once './app/models/ViajeModel.php';
 require_once './app/views/ViajeView.php';
 
 
-class ViajeController {
+class ViajeController extends BaseController{
     private $model;
     private $view;
 
     public function __construct() {
+    
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
         
@@ -16,7 +17,6 @@ class ViajeController {
     public function showDestino() {
         $viajes = $this->model->getDestino();
         $this->view->showDestino($viajes);
-      
     }
 
 
@@ -53,7 +53,7 @@ class ViajeController {
             $this->model->deleteViaje($id);
         header('Location: ' . BASE_URL .'/MostrarViajes');
         } catch (PDOException $e) {
-         $this->view->showError("No se puede eliminar, elimine otro elemento");
+        $this->view->showError("No se puede eliminar, elimine otro elemento");
     }
 } 
     //update ver como arreglar e implementar el manejo de error

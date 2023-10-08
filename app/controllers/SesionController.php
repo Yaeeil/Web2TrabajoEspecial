@@ -1,5 +1,5 @@
 <?php
-require_once './help/SesionHelper.php';
+require_once './auth/AuthHelper.php';
 require_once './app/models/UsuarioModel.php';
 require_once './app/views/SesionView.php';
 class SesionController {
@@ -29,7 +29,7 @@ class SesionController {
         if ($user && password_verify($password, $user->password)) {
             // ACA LO AUTENTIQUE
             
-            SesionHelper::login($user);
+            AuthHelper::login($user);
             
             header('Location: ' . BASE_URL);
         } else {
@@ -38,7 +38,7 @@ class SesionController {
     }
 
     public function logout() {
-        SesionHelper::logout();
+        AuthHelper::logout();
         header('Location: ' . BASE_URL);    
     }
 }
