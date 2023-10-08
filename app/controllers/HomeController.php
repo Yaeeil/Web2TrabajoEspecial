@@ -7,7 +7,7 @@ class HomeController{
     private $view;
 
     public function __construct() {
-        AuthHelper::verify();
+       // AuthHelper::verify();
         $this->view = new HomeView();
         
     }

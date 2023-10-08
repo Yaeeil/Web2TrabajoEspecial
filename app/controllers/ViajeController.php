@@ -29,7 +29,12 @@ class ViajeController
         $this->view->showDetailsViaje($viaje, $cliente);
     }
 
-    //agrego
+    //es el intermediario
+    public function formAgregarViajes(){
+        $clientes=$this->model->getAllClientes();
+        $this->view->formularioAgregarViaje($clientes);
+    }
+    
     public function addViaje()
     {
         $destino = $_POST['destino'];
@@ -61,10 +66,16 @@ class ViajeController
             $this->view->showError("No se puede eliminar, elimine otro elemento");
         }
     }
+    
     //update ver como arreglar e implementar el manejo de error
+    //es el intermediario
+    public function formActualizarViajes($id){
+        $clientes=$this->model->getAllClientes();
+        $this->view->formularioActualizarViaje($clientes, $id);
+    }
     public function updateViaje($id)
     {
-        $this->view->formularioActualizar();
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $destino = $_POST['destino'];
             $fechaS = $_POST['fechaS'];

@@ -21,6 +21,13 @@ class ViajeModel {
         return $cliente;
     }
 
+    function getAllClientes(){
+        $queryCliente = $this->db->prepare("SELECT * FROM clientes ");
+        $queryCliente->execute();
+        $clientes = $queryCliente->fetch(PDO::FETCH_OBJ);
+        return $clientes;
+    }
+
     function getDetails($id){
         $query = $this->db->prepare("SELECT * FROM viajes WHERE ID_Viaje = ?");
         $query->execute([$id]);

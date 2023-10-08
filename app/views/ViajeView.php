@@ -9,7 +9,6 @@ class ViajeView{
     // }
     public function showDestino($viajes) {
         // $clientes = $this->clienteModel->getAllClientes();
-        require_once "templates/formularioAgregarViaje.phtml";
         require_once "templates/ViajesDestinos.phtml";
     }
     
@@ -23,7 +22,13 @@ class ViajeView{
        require_once "templates/errores.phtml";
     }
     
-    public function formularioActualizar() {
+    public function formularioActualizarViaje($cliente, $id) {
+        $clientes=$cliente;
+        $id_V=$id;
         require_once "templates/formActualizarViaje.phtml";
+    }
+    public function formularioAgregarViaje($cliente) {
+        $clientes=$cliente;
+        require_once "templates/formularioAgregarViaje.phtml";
     }
 }

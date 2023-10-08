@@ -49,6 +49,10 @@ switch ($params[0]) {
         $controller = new AuthController();
         $controller->logout();
         break;
+    case 'formAgregarViaje':
+            $controller = new ViajeController();
+            $controller->formAgregarViajes();
+            break;
     case 'agregarViaje':
             $controller = new ViajeController();
             $controller->addViaje();
@@ -57,7 +61,11 @@ switch ($params[0]) {
             $controller = new ViajeController();
             $controller->deleteViaje($params[1]);
             break;
-        case 'actualizarViaje':
+    case 'formActualizarViaje':
+            $controller = new ViajeController();
+            $controller->formActualizarViajes($params[1]);
+            break;
+    case 'actualizarViaje':
             $controller = new ViajeController();
             $controller->updateViaje($params[1]);
             break;
