@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 20:06:19
+-- Tiempo de generación: 08-10-2023 a las 20:39:17
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,29 +33,35 @@ CREATE TABLE `clientes` (
   `Apellido` varchar(100) NOT NULL,
   `CorreoElectronico` varchar(100) NOT NULL,
   `FechaNacimiento` date NOT NULL,
-  `DNI` varchar(100) NOT NULL
+  `DNI` varchar(100) NOT NULL,
+  `Direccion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabla de Clientes para el TPE';
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`, `FechaNacimiento`, `DNI`) VALUES
-(1, 'Juan', 'Perez', 'juan.perez@email.com', '1990-05-15', '12345678'),
-(2, 'Ana', 'González', 'ana.gonzalez@email.com', '1985-09-23', '98765432'),
-(3, 'Carlos', 'López', 'carlos.lopez@email.com', '1995-02-10', '45678912'),
-(4, 'Laura', 'Rodriguez', 'laura.rodriguez@email.com', '1988-07-30', '78912345'),
-(5, 'Pedro', 'Martínez', 'pedro.martinez@email.com', '1992-12-18', '23456789'),
-(6, 'María', 'Sánchez', 'maria.sanchez@email.com', '1983-04-05', '67891234'),
-(7, 'Javier', 'Gómez', 'javier.gomez@email.com', '1998-08-22', '34567891'),
-(8, 'Sofía', 'Fernández', 'sofia.fernandez@email.com', '1993-03-14', '78912345'),
-(9, 'Luis', 'Díaz', 'luis.diaz@email.com', '1991-11-27', '45678912'),
-(10, 'Elena', 'López', 'elena.lopez@email.com', '1987-06-10', '23456789'),
-(11, 'Diego', 'Hernández', 'diego.hernandez@email.com', '1996-01-05', '67891234'),
-(12, 'Carmen', 'Pérez', 'carmen.perez@email.com', '1984-09-17', '34567891'),
-(13, 'Hugo', 'García', 'hugo.garcia@email.com', '1997-07-01', '78912345'),
-(14, 'Paula', 'Vargas', 'paula.vargas@email.com', '1994-04-09', '45678912'),
-(15, 'Miguel', 'Torres', 'miguel.torres@email.com', '1990-10-25', '23456789');
+INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`, `FechaNacimiento`, `DNI`, `Direccion`) VALUES
+(1, 'Juan', 'Pérez', 'juan.perez@example.com', '1990-05-15', '12345678A', 'Calle A, Ciudad A'),
+(2, 'María', 'García', 'maria.garcia@example.com', '1985-08-20', '98765432B', 'Calle B, Ciudad B'),
+(3, 'Pedro', 'López', 'pedro.lopez@example.com', '1992-03-10', '45678901C', 'Calle C, Ciudad C'),
+(4, 'Ana', 'Martínez', 'ana.martinez@example.com', '1988-11-25', '65432109D', 'Calle D, Ciudad D'),
+(5, 'Carlos', 'Rodríguez', 'carlos.rodriguez@example.com', '1995-07-12', '78901234E', 'Calle E, Ciudad E'),
+(6, 'Laura', 'Fernández', 'laura.fernandez@example.com', '1983-02-05', '89012345F', 'Calle F, Ciudad F'),
+(7, 'Miguel', 'Sánchez', 'miguel.sanchez@example.com', '1993-09-30', '01234567G', 'Calle G, Ciudad G'),
+(8, 'Elena', 'Gómez', 'elena.gomez@example.com', '1991-06-18', '23456789H', 'Calle H, Ciudad H'),
+(9, 'Luis', 'Pardo', 'luis.pardo@example.com', '1987-04-22', '34567890I', 'Calle I, Ciudad I'),
+(10, 'Sofía', 'Hernández', 'sofia.hernandez@example.com', '1994-01-07', '45678901J', 'Calle J, Ciudad J'),
+(11, 'Javier', 'Díaz', 'javier.diaz@example.com', '1996-10-14', '56789012K', 'Calle K, Ciudad K'),
+(12, 'Isabel', 'López', 'isabel.lopez@example.com', '1986-12-03', '67890123L', 'Calle L, Ciudad L'),
+(13, 'David', 'Ramos', 'david.ramos@example.com', '1997-07-28', '78901234M', 'Calle M, Ciudad M'),
+(14, 'Carmen', 'Martín', 'carmen.martin@example.com', '1984-04-17', '89012345N', 'Calle N, Ciudad N'),
+(15, 'Diego', 'González', 'diego.gonzalez@example.com', '1998-03-22', '90123456O', 'Calle O, Ciudad O'),
+(16, 'Patricia', 'Soto', 'patricia.soto@example.com', '1989-09-09', '01234567P', 'Calle P, Ciudad P'),
+(17, 'Adrián', 'Ortega', 'adrian.ortega@example.com', '1999-05-05', '12345678Q', 'Calle Q, Ciudad Q'),
+(18, 'Eva', 'Vega', 'eva.vega@example.com', '1982-08-02', '23456789R', 'Calle R, Ciudad R'),
+(19, 'José', 'Ferrer', 'jose.ferrer@example.com', '1990-11-11', '34567890S', 'Calle S, Ciudad S'),
+(20, 'Lorena', 'Roca', 'lorena.roca@example.com', '1981-06-30', '45678901T', 'Calle T, Ciudad T');
 
 -- --------------------------------------------------------
 
@@ -65,8 +71,8 @@ INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`,
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `NombreUsuario` varchar(40) NOT NULL,
-  `password` varchar(40) NOT NULL
+  `NombreUsuario` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -74,7 +80,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `NombreUsuario`, `password`) VALUES
-(1, 'webadmin', 'admin');
+(1, 'webAdmin', '$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige');
 
 -- --------------------------------------------------------
 
@@ -97,18 +103,26 @@ CREATE TABLE `viajes` (
 --
 
 INSERT INTO `viajes` (`ID_Viaje`, `Destino`, `FechaSalida`, `FechaRegreso`, `Descripcion`, `Precio`, `id_Cliente`) VALUES
-(1, 'París, Francia', '2024-03-15', '2024-03-22', 'Disfruta de una estancia de 7 días en la hermosa ciudad de París, Francia. Visita la Torre Eiffel, el Louvre y pasea por los encantadores bulevares parisinos. Precio: $150000.00 por persona.', 150000, 1),
-(2, 'Nueva York, EE. UU.', '2024-04-10', '2024-04-18', 'Explora la Gran Manzana durante 8 días en Nueva York, Estados Unidos. Visita Times Square, Central Park y disfruta de un espectáculo en Broadway. Precio: $220000.00 por persona.', 220000, 2),
-(3, 'Roma, Italia', '2024-05-05', '2024-05-12', 'Descubre la historia de Roma, Italia, durante 7 días. Explora el Coliseo, el Vaticano y saborea auténtica pasta italiana. Precio: $180000.00 por persona.', 180000, 3),
-(4, 'Tokio, Japón', '2024-06-20', '2024-06-30', 'Sumérgete en la cultura japonesa durante 10 días en Tokio, Japón. Visita el Templo Senso-ji, el barrio de Akihabara y prueba sushi fresco. Precio: $250000.00 por persona.', 250000, 4),
-(5, 'Barcelona, España', '2024-07-10', '2024-07-18', 'Explora la belleza de Barcelona, España, durante 8 días. Descubre la Sagrada Familia, pasea por Las Ramblas y disfruta de tapas españolas. Precio: $120000.00 por persona.', 120000, 5),
-(6, 'Sídney, Australia', '2024-08-15', '2024-08-25', 'Disfruta de 10 días en Sídney, Australia. Explora la Ópera de Sídney, Bondi Beach y conoce la fauna australiana. Precio: $280000.00 por persona.', 280000, 6),
-(7, 'Machu Picchu, Perú', '2024-09-10', '2024-09-18', 'Embárcate en una aventura de 9 días a Machu Picchu, Perú. Camina por el Camino Inca, explora las ruinas y conoce la cultura peruana. Precio: $170000.00 por persona.', 170000, 7),
-(8, 'Venecia, Italia', '2024-10-05', '2024-10-12', 'Descubre la belleza de Venecia, Italia, durante 7 días. Viaja en góndola por los canales, visita la Plaza de San Marcos y saborea la gastronomía veneciana. Precio: $190000.00 por persona.', 190000, 8),
-(9, 'Cancún, México', '2024-11-20', '2024-11-28', 'Relájate en Cancún, México, durante 9 días. Disfruta de playas de arena blanca, bucea en los arrecifes de coral y degusta la comida mexicana. Precio: $2300.00 por persona.', 230000, 9),
-(10, 'Ámsterdam, Países Bajos', '2024-12-10', '2025-01-02', 'Explora Ámsterdam, Países Bajos, durante 24 días, durante las festividades de fin de año. Descubre los canales, visita el Museo Van Gogh y disfruta de la vida nocturna. Precio: $160000.00 por persona.', 160000, 10),
-(11, 'París, Francia', '2024-03-15', '2024-03-22', 'Disfruta de una estancia de 7 días en la hermosa ciudad de París, Francia. Visita la Torre Eiffel, el Louvre y pasea por los encantadores bulevares parisinos. Precio: $150000.00 por persona.', 150000, 10),
-(12, 'Nueva York, EE. UU.', '2024-04-10', '2024-04-18', 'Explora la Gran Manzana durante 8 días en Nueva York, Estados Unidos. Visita Times Square, Central Park y disfruta de un espectáculo en Broadway. Precio: $220000.00 por persona.', 220000, 4);
+(1, 'París', '2023-10-15', '2023-10-20', 'Viaje a París', 1200.5, 11),
+(2, 'Londres', '2023-11-05', '2023-11-10', 'Vacaciones en Londres', 1100.25, 2),
+(3, 'Nueva York', '2023-12-01', '2023-12-10', 'Gran aventura en Nueva York', 1500.75, 17),
+(4, 'Roma', '2024-01-10', '2024-01-15', 'Explorando la antigua Roma', 900, 18),
+(5, 'Tokio', '2024-02-20', '2024-02-28', 'Viaje a la capital de Japón', 1800.6, 16),
+(6, 'Barcelona', '2024-03-15', '2024-03-20', 'Descubriendo Barcelona', 950.25, 5),
+(7, 'Sidney', '2024-04-05', '2024-04-15', 'Aventura en Australia', 2100.75, 17),
+(8, 'Ámsterdam', '2024-05-10', '2024-05-17', 'Explorando los canales de Ámsterdam', 800, 8),
+(9, 'Berlín', '2024-06-01', '2024-06-10', 'Viaje a la capital alemana', 1100.5, 8),
+(10, 'Praga', '2024-07-15', '2024-07-22', 'Descubriendo la historia de Praga', 950.75, 16),
+(11, 'Bangkok', '2024-08-10', '2024-08-18', 'Aventura en Tailandia', 1700.25, 16),
+(12, 'Budapest', '2024-09-05', '2024-09-12', 'Explorando la perla del Danubio', 1050, 12),
+(13, 'Viena', '2024-10-01', '2024-10-10', 'Viaje a la capital austriaca', 1250.6, 8),
+(14, 'Atenas', '2024-11-20', '2024-11-28', 'Explorando la cuna de la civilización', 1350.75, 6),
+(15, 'Estambul', '2024-12-15', '2024-12-22', 'Viaje a la ciudad entre dos continentes', 1150.25, 3),
+(16, 'San Francisco', '2025-01-10', '2025-01-18', 'Aventura en la bahía de San Francisco', 1600.5, 17),
+(17, 'Dubái', '2025-02-05', '2025-02-12', 'Explorando la ciudad del lujo', 1400.75, 13),
+(18, 'Moscú', '2025-03-20', '2025-03-28', 'Viaje a la capital rusa', 1300.6, 13),
+(19, 'Toronto', '2025-04-15', '2025-04-22', 'Descubriendo la ciudad canadiense', 1050.25, 5),
+(20, 'Ciudad del Cabo', '2025-05-01', '2025-05-10', 'Aventura en Sudáfrica', 1900, 4);
 
 --
 -- Índices para tablas volcadas
@@ -141,7 +155,7 @@ ALTER TABLE `viajes`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `ID_Cliente` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ID_Cliente` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -153,7 +167,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  MODIFY `ID_Viaje` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID_Viaje` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas

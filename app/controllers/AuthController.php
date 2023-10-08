@@ -1,14 +1,15 @@
 <?php
 require_once './auth/AuthHelper.php';
 require_once './app/models/UsuarioModel.php';
-require_once './app/views/SesionView.php';
-class SesionController {
+require_once './app/views/AuthView.php';
+
+class AuthController {
     private $view;
     private $model;
 
     function __construct() {
         $this->model = new UsuarioModel();
-        $this->view = new SesionView();
+        $this->view = new AuthView();
     }
 
     public function showLogin() {

@@ -2,7 +2,7 @@
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php'; 
-require_once './app/controllers/SesionController.php';
+require_once './app/controllers/AuthController.php';
 
 
 
@@ -37,23 +37,23 @@ switch ($params[0]) {
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break; 
-       case 'logIn':
-        $controller = new SesionController();
+    case 'logIn':
+        $controller = new AuthController();
         $controller->showLogin(); 
         break;
-        case 'autorizacion':
-        $controller = new SesionController();
+    case 'autorizacion':
+        $controller = new AuthController();
         $controller->auth();
         break;
-        case 'logout':
-        $controller = new SesionController();
+    case 'logout':
+        $controller = new AuthController();
         $controller->logout();
         break;
-        case 'agregarViaje':
+    case 'agregarViaje':
             $controller = new ViajeController();
             $controller->addViaje();
             break;
-        case 'eliminarViaje':
+    case 'eliminarViaje':
             $controller = new ViajeController();
             $controller->deleteViaje($params[1]);
             break;

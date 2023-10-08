@@ -1,13 +1,11 @@
 <?php
 
 require_once './app/views/HomeView.php';
-require_once './app/controllers/BaseController.php';
 
-class HomeController extends BaseController {
+class HomeController{
     private $view;
 
     public function __construct() {
-        parent::__construct();
         $this->view = new HomeView();
         
     }

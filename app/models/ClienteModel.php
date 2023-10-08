@@ -9,18 +9,15 @@ class clienteModel {
     function getAllClientes() {
         $query = $this->db->prepare('SELECT * FROM clientes');
         $query->execute();
-
-
         $viaje = $query->fetchAll(PDO::FETCH_OBJ);
-
         return $viaje;
     }
 
-//este no o sea si pero seria de viajes bro
+//este noo sea si pero seria de viajes bro
 function getDetails($id){
-        $query = $this->db->prepare("SELECT * FROM clientes WHERE ID_cliente = :id");
-        $query->bindParam(':id', $id, PDO::PARAM_INT);
-        $query->execute();
+        $query = $this->db->prepare("SELECT * FROM clientes WHERE ID_cliente = ?");
+        // $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute([$id]);
     
         // $cliente es un objeto con los detalles del cliente
         $cliente = $query->fetch(PDO::FETCH_OBJ);

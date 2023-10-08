@@ -18,7 +18,4 @@ class ViajeView{
     public function formularioActualizar() {
         require_once "templates/formActualizarViaje.phtml";
     }
- 
-    
-   
 }
