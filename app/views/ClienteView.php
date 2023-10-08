@@ -10,6 +10,7 @@ class ClienteView{
             echo "<tbody>";
             foreach ($clientes as $index) {
                 echo '<tr>';
+                echo '<td>' . $clientes->Nombre . '</td>';
                 echo '<td><a href="' . BASE_URL . 'cliente/' . $index->ID_Cliente. '" class="btn btn-primary btn-sm">Ver Detalle</a></td>';
                 echo '</tr>';
             }
