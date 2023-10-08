@@ -70,8 +70,9 @@ class ViajeController
     //update ver como arreglar e implementar el manejo de error
     //es el intermediario
     public function formActualizarViajes($id){
+        $viajes=$this->model->getDestinoById([$id]);
         $clientes=$this->model->getAllClientes();
-        $this->view->formularioActualizarViaje($clientes, $id);
+        $this->view->formularioActualizarViaje($clientes, $id, $viajes);
     }
     public function updateViaje($id)
     {

@@ -13,7 +13,17 @@ class ViajeModel {
         $viajes = $query->fetchAll(PDO::FETCH_OBJ);
         return $viajes;
     }
+    function getDestinoById($id) {
+        $query = $this->db->prepare("SELECT * FROM viajes WHERE ID_Viaje=?");
+        $query->execute([$id]);
+        $viajes = $query->fetchAll(PDO::FETCH_OBJ);
+        return $viajes;
+    }
     
+    //preguntar si seguir asi o instanciar el modelo de clientes 
+    //directamente
+    //en la vista y llamar de ahi las funciones
+    //este
     function getCliente($id ){
         $queryCliente = $this->db->prepare("SELECT Nombre, Apellido, id_Cliente FROM clientes WHERE id_Cliente = ? ");
         $queryCliente->execute([$id]);
@@ -21,6 +31,8 @@ class ViajeModel {
         return $cliente;
     }
 
+    
+    //y este
     function getAllClientes(){
         $queryCliente = $this->db->prepare("SELECT * FROM clientes ");
         $queryCliente->execute();

@@ -22,9 +22,10 @@ class ViajeView{
        require_once "templates/errores.phtml";
     }
     
-    public function formularioActualizarViaje($cliente, $id) {
+    public function formularioActualizarViaje($cliente, $id, $viaje) {
         $clientes=$cliente;
         $id_V=$id;
+        $viajes=$viaje;
         require_once "templates/formActualizarViaje.phtml";
     }
     public function formularioAgregarViaje($cliente) {
