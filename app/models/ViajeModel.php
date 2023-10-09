@@ -47,9 +47,9 @@ class ViajeModel {
         return $viajes;
     }
 
-    function addViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente) {
-        $query = $this->db->prepare('INSERT INTO viajes (Destino, FechaSalida, FechaRegreso, Descripcion, Precio, id_Cliente) VALUES (?, ?, ?, ?, ?, ?)');
-        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente]);
+    function addViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente) {
+        $query = $this->db->prepare('INSERT INTO viajes (Destino, FechaSalida, FechaRegreso, Descripcion, Precio, Cliente) VALUES (?, ?, ?, ?, ?, ?)');
+        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $cliente]);
         return $this->db->lastInsertId();
     }
 
@@ -60,10 +60,10 @@ class ViajeModel {
     }
 
 
-    //aca?? o le paso el id para el router o todo para cargar
-    function updateViaje($id) {
+    
+    function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id) {
         $query = $this->db->prepare('UPDATE viajes SET Destino = ?, FechaSalida = ?, FechaRegreso = ?, Descripcion = ?, Precio = ?, id_Cliente = ? WHERE ID_Viaje = ?');
-        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $idCliente, $id]);
+        $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id]);
     }
 
 }

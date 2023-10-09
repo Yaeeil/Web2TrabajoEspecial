@@ -38,18 +38,17 @@ class ViajeController
     public function addViaje()
     {
         $destino = $_POST['destino'];
-        $fechaS = $_POST['fechaS'];
-        $fechaL = $_POST['fechaR'];
+        $fechaSalida = $_POST['fechaSalida'];
+        $fechaRegreso = $_POST['fechaRegreso'];
         $descripcion = $_POST['descripcion'];
         $precio = $_POST['precio'];
-        $id_cliente = $_POST['id_cliente'];
+        $cliente = $_POST['cliente'];
 
-        if (empty($destino) || empty($fechaS) || empty($fechaL) || empty($descripcion) || empty($precio) || empty($id_cliente)) {
+        if (empty($destino) || empty($fechaSalida) || empty($fechaRegreso) || empty($descripcion) || empty($precio) || empty($cliente)) {
             $this->view->showError("Debe completar todos los campos");
             return;
         }
-
-        $id = $this->model->addViaje($destino, $fechaS, $fechaL, $descripcion, $precio, $id_cliente);
+        $id = $this->model->addViaje($destino, $fechaSalida, $fechaRegreso, $descripcion, $precio, $cliente);
         if ($id) {
             header('Location: ' . BASE_URL . '/MostrarViajes');
         } else {
@@ -72,19 +71,19 @@ class ViajeController
     public function formActualizarViajes($id){
         $viajes=$this->model->getDestinoById([$id]);
         $clientes=$this->model->getAllClientes();
-        $this->view->formularioActualizarViaje($clientes, $id, $viajes);
+        $this->view->formularioActualizarViaje($clientes, $viajes, $id);
     }
     public function updateViaje($id)
     {
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $destino = $_POST['destino'];
-            $fechaS = $_POST['fechaS'];
-            $fechaL = $_POST['fechaL'];
+            $fechaS = $_POST['fechaSalida'];
+            $fechaR = $_POST['fechaRegreso'];
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
-            $id_cliente = $_POST['id_cliente'];
-            $this->model->updateViaje($destino, $fechaS, $fechaL, $descripcion, $precio, $id_cliente, $id);
+            $cliente = $_POST['cliente'];
+            $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
             header('Location: ' . BASE_URL . '/MostrarViajes');
             die();
         }

@@ -22,7 +22,7 @@ class ViajeView{
        require_once "templates/errores.phtml";
     }
     
-    public function formularioActualizarViaje($cliente, $id, $viaje) {
+    public function formularioActualizarViaje($cliente, $viaje, $id) {
         $clientes=$cliente;
         $id_V=$id;
         $viajes=$viaje;
