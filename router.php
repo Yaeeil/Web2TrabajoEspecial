@@ -1,7 +1,7 @@
 <?php
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
-require_once './app/controllers/ViajeController.php'; 
+require_once './app/controllers/ViajeController.php';
 require_once './app/controllers/AuthController.php';
 
 
@@ -24,22 +24,22 @@ switch ($params[0]) {
     case 'viajes':
         $controller = new ViajeController();
         $controller->showDestino();
-        break; 
+        break;
     case 'clientes':
         $controller = new ClienteController();
         $controller->showAllClientes();
-        break; 
+        break;
     case 'viaje':
         $controller = new ViajeController();
         $controller->showDetailsViaje($params[1]);
-        break; 
+        break;
     case 'cliente':
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
-        break; 
+        break;
     case 'logIn':
         $controller = new AuthController();
-        $controller->showLogin(); 
+        $controller->showLogin();
         break;
     case 'autorizacion':
         $controller = new AuthController();
@@ -50,25 +50,25 @@ switch ($params[0]) {
         $controller->logout();
         break;
     case 'formAgregarViaje':
-            $controller = new ViajeController();
-            $controller->formAgregarViajes();
-            break;
+        $controller = new ViajeController();
+        $controller->formAgregarViajes();
+        break;
     case 'agregarViaje':
-            $controller = new ViajeController();
-            $controller->addViaje();
-            break;
+        $controller = new ViajeController();
+        $controller->addViaje();
+        break;
     case 'eliminarViaje':
-            $controller = new ViajeController();
-            $controller->deleteViaje($params[1]);
-            break;
+        $controller = new ViajeController();
+        $controller->deleteViaje($params[1]);
+        break;
     case 'formActualizarViaje':
-            $controller = new ViajeController();
-            $controller->formActualizarViajes($params[1]);
-            break;
+        $controller = new ViajeController();
+        $controller->formActualizarViajes($params[1]);
+        break;
     case 'actualizarViaje':
-            $controller = new ViajeController();
-            $controller->updateViaje($params[1]);
-            break;
+        $controller = new ViajeController();
+        $controller->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $params[1]);
+        break;
     default:
         echo "404 Page Not Found";
         break;

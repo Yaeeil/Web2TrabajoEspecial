@@ -52,7 +52,7 @@ class ViajeController
         }
         $id = $this->model->addViaje($destino, $fechaSalida, $fechaRegreso, $descripcion, $precio, $cliente);
         if ($id) {
-            header('Location: ' . BASE_URL . '/MostrarViajes');
+            header('Location: ' . BASE_URL . 'viajes');
         } else {
             $this->view->showError("Error al insertar la tarea");
         }
@@ -62,7 +62,7 @@ class ViajeController
     {
         try {
             $this->model->deleteViaje($id);
-            header('Location: ' . BASE_URL . '/MostrarViajes');
+            header('Location: ' . BASE_URL . 'viajes');
         } catch (PDOException $e) {
             $this->view->showError("No se puede eliminar, elimine otro elemento");
         }
@@ -78,7 +78,7 @@ public function formActualizarViajes($id){
 }
 
 //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
-    public function updateViaje($id)
+    public function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
     {
         
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -89,7 +89,7 @@ public function formActualizarViajes($id){
             $precio = $_POST['precio'];
             $cliente = $_POST['cliente'];
             $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
-            header('Location: ' . BASE_URL . '/MostrarViajes');
+            header('Location: ' . BASE_URL . 'viajes');
             die();
         }
     }
