@@ -24,8 +24,8 @@ class ViajeView{
     
     public function formularioActualizarViaje($cliente, $viaje, $id) {
         $clientes=$cliente;
-        $id_V=$id;
         $viajes=$viaje;
+        $id_V=$id;
         require_once "templates/formActualizarViaje.phtml";
     }
     public function formularioAgregarViaje($cliente) {

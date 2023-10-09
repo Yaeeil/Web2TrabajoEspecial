@@ -30,11 +30,13 @@ class ViajeController
     }
 
     //es el intermediario
+    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function formAgregarViajes(){
         $clientes=$this->model->getAllClientes();
         $this->view->formularioAgregarViaje($clientes);
     }
     
+    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function addViaje()
     {
         $destino = $_POST['destino'];
@@ -66,13 +68,16 @@ class ViajeController
         }
     }
     
+
+    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     //update ver como arreglar e implementar el manejo de error
-    //es el intermediario
-    public function formActualizarViajes($id){
-        $viajes=$this->model->getDestinoById([$id]);
-        $clientes=$this->model->getAllClientes();
-        $this->view->formularioActualizarViaje($clientes, $viajes, $id);
-    }
+public function formActualizarViajes($id){
+    $viajes = $this->model->getDestinoById($id); // Pasar $id como un valor, no un array
+    $clientes = $this->model->getAllClientes();
+    $this->view->formularioActualizarViaje($clientes, $viajes, $id);
+}
+
+//hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function updateViaje($id)
     {
         
