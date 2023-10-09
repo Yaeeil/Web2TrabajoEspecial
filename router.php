@@ -21,33 +21,25 @@ switch ($params[0]) {
         $controller = new HomeController();
         $controller->showHome();
         break;
-    case 'viajes':
-        $controller = new ViajeController();
-        $controller->showDestino();
-        break;
     case 'clientes':
         $controller = new ClienteController();
         $controller->showAllClientes();
         break;
-    case 'viaje':
-        $controller = new ViajeController();
-        $controller->showDetailsViaje($params[1]);
-        break;
-    case 'cliente':
+    case 'ClienteDetalles':
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break;
-    case 'logIn':
-        $controller = new AuthController();
-        $controller->showLogin();
+    case 'AgregarCliente':
+        $controller = new ClienteController();
+        $controller->formAgregarCliente($params[1]);
         break;
-    case 'autorizacion':
-        $controller = new AuthController();
-        $controller->auth();
+    case 'viajes':
+        $controller = new ViajeController();
+        $controller->showDestino();
         break;
-    case 'logout':
-        $controller = new AuthController();
-        $controller->logout();
+    case 'viaje':
+        $controller = new ViajeController();
+        $controller->showDetailsViaje($params[1]);
         break;
     case 'formAgregarViaje':
         $controller = new ViajeController();
@@ -68,6 +60,18 @@ switch ($params[0]) {
     case 'actualizarViaje':
         $controller = new ViajeController();
         $controller->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $params[1]);
+        break;
+    case 'logIn':
+        $controller = new AuthController();
+        $controller->showLogin();
+        break;
+    case 'autorizacion':
+        $controller = new AuthController();
+        $controller->auth();
+        break;
+    case 'logOut':
+        $controller = new AuthController();
+        $controller->logOut();
         break;
     default:
         echo "404 Page Not Found";

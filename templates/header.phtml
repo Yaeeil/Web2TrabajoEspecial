@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <base href="<?php echo BASE_URL ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilos.css">
-    <title>Viajes</title>
+    <title>Travel Around The World</title>
 </head>
 <?php session_start(); ?>
+
 <body>
     <header>
 
@@ -23,9 +25,9 @@
                 </li>
             <?php else : ?>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logout'; ?>">Logout (<?= $_SESSION['nombreUsuario'] ?>)</a>
+                    <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logOut'; ?>">Logout (<?= $_SESSION['nombreUsuario'] ?>)</a>
                 </li>
             <?php endif ?>
-    
+
     </header>
 </body>

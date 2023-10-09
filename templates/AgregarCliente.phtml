@@ -2,17 +2,17 @@
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<form action="agregarViaje" method="post">
+<form action="agregarCliente" method="post">
 
-    <label for="destino">Destino:</label>
-    <input type="text" class="form-control" id="destino" name="destino" required>
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Cliente nuevo" required>
 
-    <label class="form-label" for="fechaSalida">Fecha de Salida:</label>
-    <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" required>
+    <label class="form-label" for="apellido">Apellido:</label>
+    <input type="text" class="form-control" id="apellido" name="apellido" required>
 
 
-    <label for="fechaRegreso">Fecha de Llegada:</label>
-    <input type="date" class="form-control" id="fechaRegreso" name="fechaRegreso" required>
+    <label for="correoElectronico">Correo Electronico:</label>
+    <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" required>
 
     <label class="form-label" for="descripcion">Descripción:</label>
     <textarea id="descripcion" name="descripcion" required></textarea>

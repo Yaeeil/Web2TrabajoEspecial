@@ -10,7 +10,7 @@ class ViajeController
 
     public function __construct()
     {
-    
+
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
     }
@@ -31,11 +31,12 @@ class ViajeController
 
     //es el intermediario
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
-    public function formAgregarViajes(){
-        $clientes=$this->model->getAllClientes();
+    public function formAgregarViajes()
+    {
+        $clientes = $this->model->getAllClientes();
         $this->view->formularioAgregarViaje($clientes);
     }
-    
+
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function addViaje()
     {
@@ -67,20 +68,21 @@ class ViajeController
             $this->view->showError("No se puede eliminar, elimine otro elemento");
         }
     }
-    
+
 
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     //update ver como arreglar e implementar el manejo de error
-public function formActualizarViajes($id){
-    $viajes = $this->model->getDestinoById($id); // Pasar $id como un valor, no un array
-    $clientes = $this->model->getAllClientes();
-    $this->view->formularioActualizarViaje($clientes, $viajes, $id);
-}
+    public function formActualizarViajes($id)
+    {
+        $viajes = $this->model->getDestinoById($id); // Pasar $id como un valor, no un array
+        $clientes = $this->model->getAllClientes();
+        $this->view->formularioActualizarViaje($clientes, $viajes, $id);
+    }
 
-//hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
+    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
     {
-        
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $destino = $_POST['destino'];
             $fechaS = $_POST['fechaSalida'];

@@ -5,7 +5,7 @@
 <form action="actualizarViaje" method="post">
     <div>
         <label for="destino">Destino:</label>
-        
+
         <input type="text" class="form-control" id="destino" name="destino" value="<?php echo $viajes->Destino; ?>" required>
     </div>
     <div>
@@ -26,11 +26,11 @@
     </div>
     <div>
         <label class="form-label" for="cliente">Cliente:</label>
-<select class="form-control" id="cliente" name="cliente" required>
-    <?php foreach ($clientes as $cliente) { ?>
-        <option value="<?php echo $cliente->ID_Cliente; ?>"><?php echo $cliente->Nombre; ?></option>
-    <?php } ?>
-</select>
+        <select class="form-control" id="cliente" name="cliente" required>
+            <?php foreach ($clientes as $cliente) { ?>
+                <option value="<?php echo $cliente->ID_Cliente; ?>"><?php echo $cliente->Nombre; ?></option>
+            <?php } ?>
+        </select>
 
     </div>
     <button class="btn btn-warning" type="submit">Actualizar</button>

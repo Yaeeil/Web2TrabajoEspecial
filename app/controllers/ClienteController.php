@@ -2,23 +2,30 @@
 require_once './app/models/ClienteModel.php';
 require_once './app/views/ClienteView.php';
 
-class ClienteController{
+class ClienteController
+{
     private $model;
     private $view;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new ClienteModel();
         $this->view = new ClienteView();
-        
     }
 
-    public function showAllClientes(){
+    public function showAllClientes()
+    {
         $clientes = $this->model->getAllClientes();
-        $this->view->showAllClientes($clientes);
+        $this->view->showClientes($clientes);
     }
 
-    public function showDetailsCliente($id) {
+    public function showDetailsCliente($id)
+    {
         $cliente = $this->model->getDetails($id);
-        $this->view->showDetailscliente($cliente, $cliente);
+        $this->view->showDetailscliente($cliente);
+    }
+    public function formAgregarCliente(){
+        $clientes = $this->model->getAllClientes();
+        $this->view->formAgregarCliente($clientes);
     }
 }
