@@ -10,7 +10,7 @@ class ViajeController
 
     public function __construct()
     {
-
+    
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
     }

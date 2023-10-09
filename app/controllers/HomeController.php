@@ -1,13 +1,13 @@
 <?php
 
 require_once './app/views/HomeView.php';
-require_once './auth/AuthHelper.php';
+//require_once './auth/AuthHelper.php';
 
 class HomeController{
     private $view;
 
     public function __construct() {
-        AuthHelper::verify();
+        //AuthHelper::verify();
         $this->view = new HomeView();
         
     }
