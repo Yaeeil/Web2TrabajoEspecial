@@ -3,7 +3,7 @@
 
 <?php if (isset($_SESSION['id_usuario'])) { ?>
   <div class="d-grid gap-2 col-6 mx-auto">
-    <a href="<?php echo BASE_URL . 'AgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
+    <a href="<?php echo BASE_URL . 'formAgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
 
   </div>
 <?php } ?>
@@ -26,8 +26,8 @@
 
         <?php if (isset($_SESSION['id_usuario'])) { ?>
           <td>
-            <a href="<?php echo BASE_URL . 'ActualizarCliente/' . $index->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
-            <a href="<?php echo BASE_URL . 'EliminarCliente/' . $index->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
+            <a href="<?php echo BASE_URL . 'actualizarCliente/' . $index->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
+            <a href="<?php echo BASE_URL . 'eliminarCliente/' . $index->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
           </td>
         <?php } ?>
 

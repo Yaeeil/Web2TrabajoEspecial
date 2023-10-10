@@ -10,7 +10,7 @@ class ClienteView
     {
         require_once "templates/ClienteDetalles.phtml";
     }
-    public function formActualizarCliente($cliente)
+    public function formActualizarCliente($cliente, $id)
     {
         $clientes = $cliente;
         require_once "templates/ActualizarCliente.phtml";
@@ -19,7 +19,7 @@ class ClienteView
     {
         $clientes = $cliente;
 
-        require_once "templates/AgregarCliente.phtml";
+        require_once "templates/formAgregarCliente.phtml";
     }
     public function showError($error)
     {

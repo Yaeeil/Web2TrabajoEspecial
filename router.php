@@ -27,10 +27,27 @@ switch ($params[0]) {
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break;
-    case 'AgregarCliente':
+    case 'formAgregarCliente':
         $controller = new ClienteController();
-        $controller->formAgregarCliente($params[1]);
+        $controller->formAgregarCliente();
         break;
+    case 'agregarCliente':
+        $controller = new ClienteController();
+        $controller->addCliente($params[1]);
+        break;
+    case 'formActualizarCliente':
+        $controller = new ClienteController();
+        $controller->formActualizarCliente($params[1]);
+        break;
+    case 'actualizarCliente':
+        $controller = new ClienteController();
+        $controller->updateCliente($nombre, $apellido, $correoElectronico, $fechaNacimiento, $dni, $direccion, $params[1]);
+        break;
+    case 'eliminarCliente':
+        $controller = new ClienteController();
+        $controller->deleteCliente($params[1]);
+        break;
+
     case 'viajes':
         $controller = new ViajeController();
         $controller->showDestino();
@@ -76,4 +93,3 @@ switch ($params[0]) {
         break;
 }
 require_once 'templates/footer.phtml';
-
