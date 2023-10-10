@@ -12,10 +12,15 @@ class AuthHelper
 
     public static function login($user)
     {
-        AuthHelper::init();
-        $_SESSION['id_usuario'] = $user->id_usuario;
-        $_SESSION['nombreUsuario'] = $user->NombreUsuario;
-    }
+            AuthHelper::init();
+            $_SESSION['id_usuario'] = $user->id_usuario;
+            $_SESSION['nombreUsuario'] = $user->NombreUsuario;
+            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+                AuthHelper::logout(); 
+            }
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+        
 
     public static function logOut()
     {
