@@ -1,7 +1,7 @@
 <?php
 require_once './app/models/ViajeModel.php';
 require_once './app/views/ViajeView.php';
-
+require_once './auth/AuthHelper.php';
 
 class ViajeController
 {
@@ -10,7 +10,6 @@ class ViajeController
 
     public function __construct()
     {
-
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
     }
@@ -33,6 +32,7 @@ class ViajeController
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function formAgregarViajes()
     {
+        AuthHelper::verify();
         $clientes = $this->model->getAllClientes();
         $this->view->formularioAgregarViaje($clientes);
     }
@@ -40,6 +40,7 @@ class ViajeController
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function addViaje()
     {
+        AuthHelper::verify();
         $destino = $_POST['destino'];
         $fechaSalida = $_POST['fechaSalida'];
         $fechaRegreso = $_POST['fechaRegreso'];
@@ -61,6 +62,7 @@ class ViajeController
 
     function deleteViaje($id)
     {
+        AuthHelper::verify();
         try {
             $this->model->deleteViaje($id);
             header('Location: ' . BASE_URL . 'viajes');
@@ -74,6 +76,7 @@ class ViajeController
     //update ver como arreglar e implementar el manejo de error
     public function formActualizarViajes($id)
     {
+        AuthHelper::verify();
         $viajes = $this->model->getDestinoById($id); // Pasar $id como un valor, no un array
         $clientes = $this->model->getAllClientes();
         $this->view->formularioActualizarViaje($clientes, $viajes, $id);
@@ -82,7 +85,7 @@ class ViajeController
     //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
     public function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
     {
-
+        AuthHelper::verify();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $destino = $_POST['destino'];
             $fechaS = $_POST['fechaSalida'];

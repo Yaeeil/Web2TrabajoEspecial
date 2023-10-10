@@ -1,6 +1,8 @@
 <?php
 require_once './app/models/ClienteModel.php';
 require_once './app/views/ClienteView.php';
+require_once './auth/AuthHelper.php';
+
 
 class ClienteController
 {
@@ -22,9 +24,11 @@ class ClienteController
     public function showDetailsCliente($id)
     {
         $cliente = $this->model->getDetails($id);
-        $this->view->showDetailscliente($cliente);
+        $viajes = $this->model->getViajes($id);
+        $this->view->showDetailscliente($cliente,$viajes);
     }
     public function formAgregarCliente(){
+        AuthHelper::verify();
         $clientes = $this->model->getAllClientes();
         $this->view->formAgregarCliente($clientes);
     }

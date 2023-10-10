@@ -1,13 +1,10 @@
 <?php
+define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php';
 require_once './app/controllers/AuthController.php';
-
-
-
-
-define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
 
 $action = 'home'; // acción por defecto
 if (!empty($_GET['action'])) {

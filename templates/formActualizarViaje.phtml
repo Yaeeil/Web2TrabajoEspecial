@@ -2,7 +2,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-<form action="actualizarViaje" method="post">
+<form action="actualizarViaje/<?php echo $viajes->ID_Viaje; ?>" method="post">
     <div>
         <label for="destino">Destino:</label>
 
@@ -28,7 +28,9 @@
         <label class="form-label" for="cliente">Cliente:</label>
         <select class="form-control" id="cliente" name="cliente" required>
             <?php foreach ($clientes as $cliente) { ?>
-                <option value="<?php echo $cliente->ID_Cliente; ?>"><?php echo $cliente->Nombre; ?></option>
+                <option value="<?php echo $cliente->ID_Cliente; ?>" <?= $cliente->ID_Cliente == $viajes->id_Cliente ? ' selected="selected"' : ''; ?>>
+                    <?php echo $cliente->Nombre; ?>
+                </option>
             <?php } ?>
         </select>
 

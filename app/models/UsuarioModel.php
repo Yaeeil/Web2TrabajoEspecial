@@ -1,4 +1,5 @@
 <?php
+require_once './database/db.php';
 
 class UsuarioModel
 {
@@ -6,7 +7,8 @@ class UsuarioModel
 
     function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;dbname=web2tpe;charset=utf8', 'root', '');
+        $this->db = setupDB();
+        // $this->db = new PDO('mysql:host=localhost;dbname=web2tpe;charset=utf8', 'root', '');
     }
 
     public function getByNombre($nombre)

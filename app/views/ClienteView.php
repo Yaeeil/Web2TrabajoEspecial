@@ -6,7 +6,7 @@ class ClienteView
         require_once "templates/Clientes.phtml";
     }
 
-    public function showDetailsCliente($cliente)
+    public function showDetailsCliente($cliente, $viajes)
     {
         require_once "templates/ClienteDetalles.phtml";
     }
@@ -21,7 +21,6 @@ class ClienteView
 
         require_once "templates/AgregarCliente.phtml";
     }
-
     public function showError($error)
     {
         $errores = $error;
