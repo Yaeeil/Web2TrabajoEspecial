@@ -3,15 +3,12 @@
 
 class ViajeView
 {
-    // private $clienteModel;
-
-    // public function __construct() {
-    //     $this->clienteModel = new ClienteModel();
-    // }
+   
     public function showDestino($viajes)
     {
-        // $clientes = $this->clienteModel->getAllClientes();
         require_once "templates/ViajesDestinos.phtml";
+        session_start(); 
+
     }
 
     public function showDetailsViaje($viaje, $cliente)

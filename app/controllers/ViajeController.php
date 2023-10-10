@@ -28,8 +28,7 @@ class ViajeController
         $this->view->showDetailsViaje($viaje, $cliente);
     }
 
-    //es el intermediario
-    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
+
     public function formAgregarViajes()
     {
         AuthHelper::verify();
@@ -37,8 +36,7 @@ class ViajeController
         $this->view->formularioAgregarViaje($clientes);
     }
 
-    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
-    public function addViaje()
+        public function addViaje()
     {
         AuthHelper::verify();
         $destino = $_POST['destino'];
@@ -67,22 +65,20 @@ class ViajeController
             $this->model->deleteViaje($id);
             header('Location: ' . BASE_URL . 'viajes');
         } catch (PDOException $e) {
-            $this->view->showError("No se puede eliminar, elimine otro elemento");
+            $this->view->showError("No se puede eliminar, elimine otro elemento" .  $e->getMessage());
         }
     }
 
 
-    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
-    //update ver como arreglar e implementar el manejo de error
     public function formActualizarViajes($id)
     {
         AuthHelper::verify();
-        $viajes = $this->model->getDestinoById($id); // Pasar $id como un valor, no un array
+        $viajes = $this->model->getDestinoById($id); 
         $clientes = $this->model->getAllClientes();
         $this->view->formularioActualizarViaje($clientes, $viajes, $id);
     }
 
-    //hay que hacer que no se pueda acceder sin estar logueado a esta funcion 
+  
     public function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
     {
         AuthHelper::verify();
@@ -93,9 +89,23 @@ class ViajeController
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
             $cliente = $_POST['cliente'];
-            $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
-            header('Location: ' . BASE_URL . 'viajes');
-            die();
+        
+            try {
+                if (empty($destino) || empty($fechaS) || empty($fechaR) || empty($descripcion) || empty($precio) || empty($cliente)) {
+                    $this->view->showError("Debe completar todos los campos");
+                    return;
+                }
+        
+                $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
+                if ($id) {
+                    header('Location: ' . BASE_URL . 'viajes');
+                }
+            } catch (PDOException $e) {
+                $this->view->showError("No se puede actualizar: " . $e->getMessage());
+            }
+        } else {
+            $this->view->showError("Error al actualizar la tarea");
         }
     }
 }
+        
