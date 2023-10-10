@@ -1,5 +1,6 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
+require_once 'templates/header.phtml';
 
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
@@ -74,3 +75,5 @@ switch ($params[0]) {
         echo "404 Page Not Found";
         break;
 }
+require_once 'templates/footer.phtml';
+
