@@ -32,7 +32,6 @@ class AuthController
         // busco el usuario
         $user = $this->model->getByNombre($nombre);
         if ($user && password_verify($password, $user->password)) {
-            // ACA LO AUTENTIQUE
             AuthHelper::login($user);
             header('Location: ' . BASE_URL);
         } else {
