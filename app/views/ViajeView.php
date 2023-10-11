@@ -2,7 +2,7 @@
 
 class ViajeView
 {
-   
+
     public function showDestino($viajes)
     {
         require_once "templates/ViajesDestinos.phtml";
@@ -16,11 +16,10 @@ class ViajeView
     }
 
 
-    public function formularioActualizarViaje($cliente, $viaje, $id)
+    public function formularioActualizarViaje($viaje, $cliente)
     {
-        $clientes = $cliente;
         $viajes = $viaje;
-        $id_V = $id;
+        $clientes = $cliente;
         require_once "templates/formActualizarViaje.phtml";
     }
     public function formularioAgregarViaje($cliente)

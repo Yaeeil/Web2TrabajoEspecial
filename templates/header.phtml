@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/piePag.css">
     <title>Travel Around The World</title>
 </head>
-<?php session_start(); ?> <!--preguntar?-->
+<?php session_start(); ?>
 
 <body>
     <header>
@@ -22,11 +22,10 @@
             <a href="<?php echo BASE_URL . 'clientes'; ?>">Clientes</a>
             <a href="<?php echo BASE_URL . 'viajes'; ?>">Viajes</a>
             <?php if (!isset($_SESSION['id_usuario'])) : ?>
-                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logIn'; ?>">Ingresar</a>
+                    <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logIn'; ?>">Ingresar</a>
             <?php else : ?>
-                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logOut'; ?>">Logout (<?= $_SESSION['nombreUsuario'] ?>)</a>
+                    <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'logOut'; ?>">Logout (<?= $_SESSION['nombreUsuario'] ?>)</a>
             <?php endif ?>
 
     </header>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
