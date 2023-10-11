@@ -29,8 +29,8 @@
             <td><?php echo $cliente->Direccion; ?></td>
             <?php if (isset($_SESSION['id_usuario'])) { ?>
                 <td>
-                    <a href="<?php echo BASE_URL . 'ActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?php echo BASE_URL . 'formActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo BASE_URL . 'eliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             <?php } ?>
         </tr>

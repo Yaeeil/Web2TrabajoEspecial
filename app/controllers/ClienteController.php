@@ -23,11 +23,12 @@ class ClienteController
 
     public function showDetailsCliente($id)
     {
-        $cliente = $this->model->getDetails($id);
-        $viajes = $this->model->getClientes($id);
-        $this->view->showDetailscliente($cliente,$viajes);
+        $cliente = $this->model->getClienteById($id);
+        $viajes = $this->model->getViajesByClienteId($id);
+        $this->view->showDetailscliente($cliente, $viajes);
     }
-    public function formAgregarCliente(){
+    public function formAgregarCliente()
+    {
         AuthHelper::verify();
         $clientes = $this->model->getAllClientes();
         $this->view->formAgregarCliente($clientes);
@@ -57,10 +58,10 @@ class ClienteController
     public function formActualizarCliente($id)
     {
         AuthHelper::verify();
-        $clientes = $this->model->getAllClientes();
-        $this->view->formActualizarCliente($clientes, $id);
+        $clientes = $this->model->getClienteById($id);
+        $this->view->formActualizarCliente($clientes);
     }
-    public function updateCliente($nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $precio, $cliente, $id)
+    public function updateCliente($id)
     {
         AuthHelper::verify();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -70,12 +71,23 @@ class ClienteController
             $fechaDeNacimiento = $_POST['desfechaDeNacimientocripcion'];
             $dni = $_POST['dni'];
             $direccion = $_POST['direccion'];
-            $this->model->updateCliente($nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $dni, $direccion);
+            $this->model->updateCliente($id, $nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $dni, $direccion);
             header('Location: ' . BASE_URL . 'clientes');
             die();
+            try {
+                if (empty($destino) || empty($fechaS) || empty($fechaR) || empty($descripcion) || empty($precio) || empty($cliente)) {
+                    $this->view->showError("Debe completar todos los campos");
+                    return;
+                }
+                $this->model->updateCliente($id, $nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $dni, $direccion);
+            } catch (PDOException $e) {
+                $this->view->showError("No se puede actualizar: " . $e->getMessage());
+            }
+        } else {
+            $this->view->showError("Error al actualizar la tarea");
         }
     }
-    
+
     function deleteCliente($id)
     {
         AuthHelper::verify();

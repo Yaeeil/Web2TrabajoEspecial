@@ -36,7 +36,7 @@ class ViajeController
         $this->view->formularioAgregarViaje($clientes);
     }
 
-        public function addViaje()
+    public function addViaje()
     {
         AuthHelper::verify();
         $destino = $_POST['destino'];
@@ -73,13 +73,13 @@ class ViajeController
     public function formActualizarViajes($id)
     {
         AuthHelper::verify();
-        $viajes = $this->model->getDestinoById($id); 
+        $viaje = $this->model->getDestinoById($id);
         $clientes = $this->model->getAllClientes();
-        $this->view->formularioActualizarViaje($clientes, $viajes, $id);
+        $this->view->formularioActualizarViaje($viaje, $clientes);
     }
 
-  
-    public function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
+
+    public function updateViaje($id)
     {
         AuthHelper::verify();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -89,13 +89,13 @@ class ViajeController
             $descripcion = $_POST['descripcion'];
             $precio = $_POST['precio'];
             $cliente = $_POST['cliente'];
-        
+
             try {
                 if (empty($destino) || empty($fechaS) || empty($fechaR) || empty($descripcion) || empty($precio) || empty($cliente)) {
                     $this->view->showError("Debe completar todos los campos");
                     return;
                 }
-        
+
                 $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
                 if ($id) {
                     header('Location: ' . BASE_URL . 'viajes');
@@ -108,4 +108,3 @@ class ViajeController
         }
     }
 }
-        

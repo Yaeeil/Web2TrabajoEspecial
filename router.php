@@ -23,7 +23,7 @@ switch ($params[0]) {
         $controller = new ClienteController();
         $controller->showAllClientes();
         break;
-    case 'ClienteDetalles':
+    case 'clienteDetalles':
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break;
@@ -41,7 +41,7 @@ switch ($params[0]) {
         break;
     case 'actualizarCliente':
         $controller = new ClienteController();
-        $controller->updateCliente($nombre, $apellido, $correoElectronico, $fechaNacimiento, $dni, $direccion, $params[1]);
+        $controller->updateCliente($params[1]);
         break;
     case 'eliminarCliente':
         $controller = new ClienteController();
@@ -74,7 +74,7 @@ switch ($params[0]) {
         break;
     case 'actualizarViaje':
         $controller = new ViajeController();
-        $controller->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $params[1]);
+        $controller->updateViaje($params[1]);
         break;
     case 'logIn':
         $controller = new AuthController();

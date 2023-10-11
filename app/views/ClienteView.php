@@ -10,10 +10,9 @@ class ClienteView
     {
         require_once "templates/ClienteDetalles.phtml";
     }
-    public function formActualizarCliente($cliente, $id)
+    public function formActualizarCliente($clientes)
     {
-        $clientes = $cliente;
-        require_once "templates/ActualizarCliente.phtml";
+        require_once "templates/formActualizarCliente.phtml";
     }
     public function formAgregarCliente($cliente)
     {

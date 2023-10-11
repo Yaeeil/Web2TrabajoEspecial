@@ -22,11 +22,11 @@
     <?php foreach ($clientes as $index) { ?>
       <tr>
         <td><?php echo $index->Nombre; ?></td>
-        <td><a href="<?php echo BASE_URL . 'ClienteDetalles/' . $index->ID_Cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+        <td><a href="<?php echo BASE_URL . 'clienteDetalles/' . $index->ID_Cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
 
         <?php if (isset($_SESSION['id_usuario'])) { ?>
           <td>
-            <a href="<?php echo BASE_URL . 'actualizarCliente/' . $index->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
+            <a href="<?php echo BASE_URL . 'formActualizarCliente/' . $index->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
             <a href="<?php echo BASE_URL . 'eliminarCliente/' . $index->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
           </td>
         <?php } ?>
