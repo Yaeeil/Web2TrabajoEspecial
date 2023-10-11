@@ -1,9 +1,8 @@
 <?php
-// require_once './app/models/ClienteModel.php';
 
 class ViajeView
 {
-
+   
     public function showDestino($viajes)
     {
         require_once "templates/ViajesDestinos.phtml";
@@ -17,8 +16,11 @@ class ViajeView
     }
 
 
-    public function formularioActualizarViaje($viaje, $clientes)
+    public function formularioActualizarViaje($cliente, $viaje, $id)
     {
+        $clientes = $cliente;
+        $viajes = $viaje;
+        $id_V = $id;
         require_once "templates/formActualizarViaje.phtml";
     }
     public function formularioAgregarViaje($cliente)
