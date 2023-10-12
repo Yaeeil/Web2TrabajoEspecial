@@ -1,3 +1,5 @@
+<?php require_once 'templates/Header.phtml'; ?>
+
 <h2>Cliente</h2>
 
 <table class="table table-striped">
@@ -10,7 +12,7 @@
             <th>FechaNacimiento</th>
             <th>DNI</th>
             <th>Direccion</th>
-            <?php if (isset($_SESSION['id_usuario'])) { ?>
+            <?php if ($isAdmin) { ?>
                 <th>Opciones</th>
             <?php } ?>
         </tr>
@@ -24,14 +26,15 @@
             <td><?php echo $cliente->FechaNacimiento; ?></td>
             <td><?php echo $cliente->DNI; ?></td>
             <td><?php echo $cliente->Direccion; ?></td>
-            <?php if (isset($_SESSION['id_usuario'])) { ?>
+            <?php if ($isAdmin) { ?>
                 <td>
-                    <a href="<?php echo BASE_URL . 'formActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo BASE_URL . 'eliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             <?php } ?>
         </tr>
     </tbody>
 </table>
 
-<?php   require_once 'templates/ClienteDetallesViajes.phtml'; ?>
+<?php require_once 'templates/ClienteDetallesViajes.phtml'; ?>
+<?php require_once 'templates/Footer.phtml'; ?>

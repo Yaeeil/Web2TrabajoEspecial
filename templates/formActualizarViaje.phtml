@@ -1,4 +1,6 @@
-<form action="actualizarViaje/<?php echo $viaje->ID_Viaje; ?>" method="POST">
+<?php require_once 'templates/Header.phtml'; ?>
+
+<form action="ActualizarViaje/<?php echo $viaje->ID_Viaje; ?>" method="POST">
     <div>
         <label for="destino">Destino:</label>
         <input type="text" class="form-control" id="destino" name="destino" value="<?php echo $viaje->Destino; ?>" required>
@@ -32,3 +34,4 @@
     </div>
     <button class="btn btn-warning" type="submit">Actualizar</button>
 </form>
+<?php require_once 'templates/Footer.phtml'; ?>

@@ -1,4 +1,6 @@
-<form action="agregarViaje" method="post">
+<?php require_once 'templates/Header.phtml'; ?>
+
+<form action="AgregarViaje" method="post">
 
     <label for="destino">Destino:</label>
     <input type="text" class="form-control" id="destino" name="destino" required>
@@ -22,7 +24,6 @@
             <option value="<?php echo $cliente->ID_Cliente; ?>"><?php echo $cliente->Nombre; ?></option>
         <?php } ?>
     </select>
-
-
     <button class="btn btn-success" type="submit">Agregar Viaje</button>
 </form>
+<?php require_once 'templates/Footer.phtml'; ?>

@@ -1,5 +1,6 @@
 <?php
 require_once './app/models/ViajeModel.php';
+require_once './app/models/ClienteModel.php';
 require_once './app/views/ViajeView.php';
 require_once './auth/AuthHelper.php';
 
@@ -7,25 +8,29 @@ class ViajeController
 {
     private $model;
     private $view;
+    private $clienteModel;
 
     public function __construct()
     {
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
+        $this->clienteModel = new ClienteModel();
     }
 
     public function showDestino()
     {
+        $isAdmin = AuthHelper::isAdmin();
         $viajes = $this->model->getDestino();
-        $this->view->showDestino($viajes);
+        $this->view->showDestino($viajes, $isAdmin);
     }
 
 
     public function showDetailsViaje($id)
     {
+        $isAdmin = AuthHelper::isAdmin();
         $viaje = $this->model->getDetails($id);
-        $cliente = $this->model->getCliente($viaje->id_Cliente);
-        $this->view->showDetailsViaje($viaje, $cliente);
+        $cliente = $this->clienteModel->getClienteById($id);
+        $this->view->showDetailsViaje($viaje, $cliente, $isAdmin);
     }
 
 
@@ -52,7 +57,7 @@ class ViajeController
         }
         $id = $this->model->addViaje($destino, $fechaSalida, $fechaRegreso, $descripcion, $precio, $cliente);
         if ($id) {
-            header('Location: ' . BASE_URL . 'viajes');
+            header('Location: ' . BASE_URL . 'Viajes');
         } else {
             $this->view->showError("Error al insertar la tarea");
         }
@@ -63,7 +68,7 @@ class ViajeController
         AuthHelper::verify();
         try {
             $this->model->deleteViaje($id);
-            header('Location: ' . BASE_URL . 'viajes');
+            header('Location: ' . BASE_URL . 'Viajes');
         } catch (PDOException $e) {
             $this->view->showError("No se puede eliminar, elimine otro elemento" .  $e->getMessage());
         }
@@ -98,7 +103,7 @@ class ViajeController
 
                 $this->model->updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id);
                 if ($id) {
-                    header('Location: ' . BASE_URL . 'viajes');
+                    header('Location: ' . BASE_URL . 'Viajes');
                 }
             } catch (PDOException $e) {
                 $this->view->showError("No se puede actualizar: " . $e->getMessage());

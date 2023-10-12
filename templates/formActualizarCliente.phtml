@@ -1,4 +1,6 @@
-<form action="actualizarCliente/<?php echo $clientes->ID_Cliente; ?>" method="post">
+<?php require_once 'templates/Header.phtml'; ?>
+
+<form action="ActualizarCliente/<?php echo $clientes->ID_Cliente; ?>" method="post">
     <label for="nombre">Nombre:</label>
     <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $clientes->Nombre; ?>" required>
 
@@ -20,3 +22,4 @@
 
     <button class="btn btn-success" type="submit">Actualizar Cliente</button>
 </form>
+<?php require_once 'templates/Footer.phtml'; ?>

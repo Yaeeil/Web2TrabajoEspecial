@@ -17,15 +17,17 @@ class ClienteController
 
     public function showAllClientes()
     {
+        $isAdmin = AuthHelper::isAdmin();
         $clientes = $this->model->getAllClientes();
-        $this->view->showClientes($clientes);
+        $this->view->showClientes($clientes, $isAdmin);
     }
 
     public function showDetailsCliente($id)
     {
+        $isAdmin = AuthHelper::isAdmin();
         $cliente = $this->model->getClienteById($id);
         $viajes = $this->model->getViajesByClienteId($id);
-        $this->view->showDetailscliente($cliente, $viajes);
+        $this->view->showDetailscliente($cliente, $viajes, $isAdmin);
     }
     public function formAgregarCliente()
     {
@@ -50,7 +52,7 @@ class ClienteController
         }
         $id = $this->model->addCliente($nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $dni, $direccion);
         if ($id) {
-            header('Location: ' . BASE_URL . 'clientes');
+            header('Location: ' . BASE_URL . 'Clientes');
         } else {
             $this->view->showError("Error al insertar la tarea");
         }
@@ -72,7 +74,7 @@ class ClienteController
             $dni = $_POST['dni'];
             $direccion = $_POST['direccion'];
             $this->model->updateCliente($id, $nombre, $apellido, $correoElectronico, $fechaDeNacimiento, $dni, $direccion);
-            header('Location: ' . BASE_URL . 'clientes');
+            header('Location: ' . BASE_URL . 'Clientes');
             die();
             try {
                 if (empty($destino) || empty($fechaS) || empty($fechaR) || empty($descripcion) || empty($precio) || empty($cliente)) {
@@ -93,7 +95,7 @@ class ClienteController
         AuthHelper::verify();
         try {
             $this->model->deleteCliente($id);
-            header('Location: ' . BASE_URL . 'clientes');
+            header('Location: ' . BASE_URL . 'Clientes');
         } catch (PDOException $e) {
             $this->view->showError("No se puede eliminar, elimine otro elemento");
         }

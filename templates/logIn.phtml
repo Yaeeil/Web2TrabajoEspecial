@@ -1,5 +1,7 @@
+<?php require_once 'templates/Header.phtml'; ?>
+
 <h2>Iniciar Sesión</h2>
-<form action="autorizacion" method="POST">
+<form action="Autorizacion" method="POST">
     <div>
         <label class="form-label" for="nombreUsuario">Nombre de Usuario:</label>
         <input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control" required><br><br>
@@ -16,3 +18,4 @@
     <?php endif ?>
     <button type="submit" class="btn btn-secondary mt-3">Iniciar Sesion</button>
 </form>
+<?php require_once 'templates/Footer.phtml'; ?>

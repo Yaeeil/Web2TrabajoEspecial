@@ -1,34 +1,35 @@
-<?php if (isset($_SESSION['id_usuario'])) { ?>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <a href="<?php echo BASE_URL . 'formAgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
+<?php require_once 'templates/Header.phtml'; ?>
 
-  </div>
-<?php } ?>
+<div class="d-grid gap-2 col-6 mx-auto">
+  <?php if ($isAdmin) { ?>
+    <a href="<?php echo BASE_URL . 'FormAgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
+  <?php } ?>
+</div>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Nombre del Cliente</th>
       <th>Ver Detalle</th>
-      <?php if (isset($_SESSION['id_usuario'])) { ?>
+      <?php if ($isAdmin) { ?>
         <th>Opciones</th>
       <?php } ?>
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($clientes as $index) { ?>
+    <?php foreach ($clientes as $cliente) { ?>
       <tr>
-        <td><?php echo $index->Nombre; ?></td>
-        <td><a href="<?php echo BASE_URL . 'clienteDetalles/' . $index->ID_Cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
-
-        <?php if (isset($_SESSION['id_usuario'])) { ?>
+        <td><?php echo $cliente->Nombre; ?></td>
+        <td><a href="<?php echo BASE_URL . 'ClienteDetalles/' . $cliente->ID_Cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+        <?php if ($isAdmin) { ?>
           <td>
-            <a href="<?php echo BASE_URL . 'formActualizarCliente/' . $index->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
-            <a href="<?php echo BASE_URL . 'eliminarCliente/' . $index->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
+            <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
+            <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
           </td>
         <?php } ?>
-
       </tr>
     <?php } ?>
   </tbody>
 </table>
+
+<?php require_once 'templates/Footer.phtml'; ?>

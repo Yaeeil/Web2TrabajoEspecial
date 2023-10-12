@@ -3,29 +3,24 @@
 class ViajeView
 {
 
-    public function showDestino($viajes)
+    public function showDestino($viajes, $isAdmin)
     {
         require_once "templates/ViajesDestinos.phtml";
     }
 
-    public function showDetailsViaje($viaje, $cliente)
+    public function showDetailsViaje($viajes, $clientes, $isAdmin = false)
     {
-        $viajes = $viaje;
-        $clientes = $cliente;
-        require_once "templates/ViajesDetalles.phtml";
+        require_once "templates/ViajeDetalles.phtml";
     }
 
 
     public function formularioActualizarViaje($viaje, $cliente)
     {
-        $viajes = $viaje;
-        $clientes = $cliente;
-        require_once "templates/formActualizarViaje.phtml";
+        require_once "templates/FormActualizarViaje.phtml";
     }
     public function formularioAgregarViaje($cliente)
     {
-        $clientes = $cliente;
-        require_once "templates/formularioAgregarViaje.phtml";
+        require_once "templates/FormAgregarViaje.phtml";
     }
     public function showError($error)
     {

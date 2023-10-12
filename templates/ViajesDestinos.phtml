@@ -1,8 +1,10 @@
+<?php require_once 'templates/Header.phtml'; ?>
 
-<?php if (isset($_SESSION['id_usuario'])) { ?>
+<?php if ($isAdmin) { ?>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="<?php echo BASE_URL . 'formAgregarViaje/'; ?>" class="btn btn-success btn-sm">Agregar Viaje</a>
-
+        <?php if ($isAdmin) { ?>
+            <a href="<?php echo BASE_URL . 'FormAgregarViaje/'; ?>" class="btn btn-success btn-sm">Agregar Viaje</a>
+        <?php } ?>
     </div>
 <?php } ?>
 
@@ -11,7 +13,7 @@
         <tr>
             <th>Nombre del Destino</th>
             <th>Ver Detalle</th>
-            <?php if (isset($_SESSION['id_usuario'])) { ?>
+            <?php if ($isAdmin) { ?>
                 <th>Opciones</th>
             <?php } ?>
         </tr>
@@ -20,12 +22,12 @@
         <?php foreach ($viajes as $viaje) { ?>
             <tr>
                 <td><?php echo $viaje->Destino; ?></td>
-                <td><a href="<?php echo BASE_URL . 'viaje/' . $viaje->ID_Viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+                <td><a href="<?php echo BASE_URL . 'ViajeDetalles/' . $viaje->ID_Viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
 
-                <?php if (isset($_SESSION['id_usuario'])) { ?>
+                <?php if ($isAdmin) { ?>
                     <td>
-                        <a href="<?php echo BASE_URL . 'formActualizarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
-                        <a href="<?php echo BASE_URL . 'eliminarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
                     </td>
                 <?php } ?>
 
@@ -33,3 +35,4 @@
         <?php } ?>
     </tbody>
 </table>
+<?php require_once 'templates/Footer.phtml'; ?>

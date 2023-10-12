@@ -1,3 +1,4 @@
+<?php require_once 'templates/Header.phtml'; ?>
 
 <h2>Viajes</h2>
 
@@ -13,7 +14,7 @@
             <th>ID Cliente</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <?php if (isset($_SESSION['id_usuario'])) { ?>
+            <?php if ($isAdmin) { ?>
                 <th>Opciones</th>
             <?php } ?>
         </tr>
@@ -27,14 +28,16 @@
             <td><?php echo $viajes->Descripcion; ?></td>
             <td><?php echo $viajes->Precio; ?></td>
             <td><?php echo $viajes->id_Cliente; ?></td>
-            <td> <?php echo $cliente->Nombre; ?></td>
-            <td> <?php echo $cliente->Apellido; ?></td>
-            <?php if (isset($_SESSION['id_usuario'])) { ?>
+            <td> <?php echo $clientes->Nombre; ?></td>
+            <td> <?php echo $clientes->Apellido; ?></td>
+            <?php if ($isAdmin) { ?>
                 <td>
-                    <a href="<?php echo BASE_URL . 'formActualizarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo BASE_URL . 'eliminarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             <?php } ?>
         </tr>
     </tbody>
 </table>
+
+<?php require_once 'templates/Footer.phtml'; ?>

@@ -177,7 +177,7 @@ ALTER TABLE `viajes`
 -- Filtros para la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  ADD CONSTRAINT `viajes_ibfk_1` FOREIGN KEY (`id_Cliente`) REFERENCES `clientes` (`ID_Cliente`) ON DELETE CASCADE;
+  ADD CONSTRAINT `viajes_ibfk_1` FOREIGN KEY (`id_Cliente`) REFERENCES `clientes` (`ID_Cliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

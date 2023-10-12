@@ -1,90 +1,89 @@
 <?php
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
-require_once 'templates/header.phtml';
 
 require_once './app/controllers/HomeController.php';
 require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php';
 require_once './app/controllers/AuthController.php';
 
-$action = 'home'; // acción por defecto
+$action = 'Home'; // acción por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
 }
-
 $params = explode('/', $action);
 
+AuthHelper::init();
 switch ($params[0]) {
-    case 'home':
+    case 'Home':
         $controller = new HomeController();
         $controller->showHome();
         break;
-    case 'clientes':
+    case 'Clientes':
         $controller = new ClienteController();
         $controller->showAllClientes();
         break;
-    case 'clienteDetalles':
+    case 'ClienteDetalles':
         $controller = new ClienteController();
         $controller->showDetailsCliente($params[1]);
         break;
-    case 'formAgregarCliente':
+    case 'FormAgregarCliente':
         $controller = new ClienteController();
         $controller->formAgregarCliente();
         break;
-    case 'agregarCliente':
+    case 'AgregarCliente':
         $controller = new ClienteController();
         $controller->addCliente($params[1]);
         break;
-    case 'formActualizarCliente':
+    case 'FormActualizarCliente':
         $controller = new ClienteController();
         $controller->formActualizarCliente($params[1]);
         break;
-    case 'actualizarCliente':
+    case 'ActualizarCliente':
         $controller = new ClienteController();
         $controller->updateCliente($params[1]);
         break;
-    case 'eliminarCliente':
+    case 'EliminarCliente':
         $controller = new ClienteController();
         $controller->deleteCliente($params[1]);
         break;
 
-    case 'viajes':
+    case 'Viajes':
         $controller = new ViajeController();
         $controller->showDestino();
         break;
-    case 'viaje':
+    case 'ViajeDetalles':
         $controller = new ViajeController();
         $controller->showDetailsViaje($params[1]);
         break;
-    case 'formAgregarViaje':
+    case 'FormAgregarViaje':
         $controller = new ViajeController();
         $controller->formAgregarViajes();
         break;
-    case 'agregarViaje':
+    case 'AgregarViaje':
         $controller = new ViajeController();
         $controller->addViaje();
         break;
-    case 'eliminarViaje':
+    case 'EliminarViaje':
         $controller = new ViajeController();
         $controller->deleteViaje($params[1]);
         break;
-    case 'formActualizarViaje':
+    case 'FormActualizarViaje':
         $controller = new ViajeController();
         $controller->formActualizarViajes($params[1]);
         break;
-    case 'actualizarViaje':
+    case 'ActualizarViaje':
         $controller = new ViajeController();
         $controller->updateViaje($params[1]);
         break;
-    case 'logIn':
+    case 'LogIn':
         $controller = new AuthController();
         $controller->showLogin();
         break;
-    case 'autorizacion':
+    case 'Autorizacion':
         $controller = new AuthController();
         $controller->auth();
         break;
-    case 'logOut':
+    case 'LogOut':
         $controller = new AuthController();
         $controller->logOut();
         break;
@@ -92,4 +91,3 @@ switch ($params[0]) {
         echo "404 Page Not Found";
         break;
 }
-require_once 'templates/footer.phtml';

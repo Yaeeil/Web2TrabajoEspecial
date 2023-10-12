@@ -5,35 +5,37 @@ class AuthHelper
 
     public static function init()
     {
-        if (session_status() != PHP_SESSION_ACTIVE) {
-            session_start();
-        }
+        session_start();
     }
 
     public static function login($user)
     {
-            AuthHelper::init();
-            $_SESSION['id_usuario'] = $user->id_usuario;
-            $_SESSION['nombreUsuario'] = $user->NombreUsuario;
-            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-                AuthHelper::logout(); 
-            }
-            $_SESSION['LAST_ACTIVITY'] = time();
-        }
-        
+        $_SESSION['id_usuario'] = $user->id_usuario;
+        $_SESSION['nombreUsuario'] = $user->NombreUsuario;
+
+        $_SESSION['LAST_ACTIVITY'] = time();
+    }
+    public static function isAdmin()
+    {
+        return !empty($_SESSION['id_usuario']);
+    }
+
 
     public static function logOut()
     {
-        AuthHelper::init();
         session_destroy();
+        header('Location: ' . BASE_URL);
+        die();
     }
 
     public static function verify()
     {
-        AuthHelper::init();
         if (!isset($_SESSION['id_usuario'])) {
-            header('Location: ' . BASE_URL);
-            die();
+            AuthHelper::logOut();
         }
+        if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+            AuthHelper::logout();
+        }
+        $_SESSION['LAST_ACTIVITY'] = time();
     }
 }
