@@ -97,7 +97,7 @@ class ClienteController
             $this->model->deleteCliente($id);
             header('Location: ' . BASE_URL . 'Clientes');
         } catch (PDOException $e) {
-            $this->view->showError("No se puede eliminar, elimine otro elemento");
+            $this->view->showError("No se puede eliminar, el cliente tiene un viaje asociado");
         }
     }
 }
