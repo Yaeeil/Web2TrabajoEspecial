@@ -11,7 +11,7 @@ class AuthHelper
     public static function login($user)
     {
         $_SESSION['id_usuario'] = $user->id_usuario;
-        $_SESSION['nombreUsuario'] = $user->NombreUsuario;
+        $_SESSION['nombre_usuario'] = $user->NombreUsuario;
 
         $_SESSION['LAST_ACTIVITY'] = time();
     }

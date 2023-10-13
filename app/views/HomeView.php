@@ -2,7 +2,7 @@
 
 class HomeView
 {
-    public function showHome()
+    public function showHome($isAdmin=false)
     {
         require_once "templates/Home.phtml";
     }

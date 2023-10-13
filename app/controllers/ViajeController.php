@@ -29,7 +29,7 @@ class ViajeController
     {
         $isAdmin = AuthHelper::isAdmin();
         $viaje = $this->model->getDetails($id);
-        $cliente = $this->clienteModel->getClienteById($id);
+        $cliente = $this->clienteModel->getClienteById($viaje->id_cliente);
         $this->view->showDetailsViaje($viaje, $cliente, $isAdmin);
     }
 
@@ -37,8 +37,9 @@ class ViajeController
     public function formAgregarViajes()
     {
         AuthHelper::verify();
-        $clientes = $this->model->getAllClientes();
-        $this->view->formularioAgregarViaje($clientes);
+        $isAdmin = AuthHelper::isAdmin(); //para validar header
+        $clientes = $this->clienteModel->getAllClientes();
+        $this->view->formularioAgregarViaje($clientes, $isAdmin);
     }
 
     public function addViaje()
@@ -78,9 +79,10 @@ class ViajeController
     public function formActualizarViajes($id)
     {
         AuthHelper::verify();
+        $isAdmin = AuthHelper::isAdmin(); //para validar el header
         $viaje = $this->model->getDestinoById($id);
-        $clientes = $this->model->getAllClientes();
-        $this->view->formularioActualizarViaje($viaje, $clientes);
+        $clientes = $this->clienteModel->getAllClientes();
+        $this->view->formularioActualizarViaje($viaje, $clientes, $isAdmin);
     }
 
 
@@ -111,5 +113,9 @@ class ViajeController
         } else {
             $this->view->showError("Error al actualizar la tarea");
         }
+    }
+
+    public function showError($error){ //para el router
+    $this->view->showError($error);
     }
 }

@@ -6,15 +6,17 @@ class ClienteView
         require_once "templates/Clientes.phtml";
     }
 
-    public function showDetailsCliente($cliente, $viajes, $isAdmin = false)
+    public function showDetailsCliente($clientes, $viaje, $isAdmin = false)
     {
+        $cliente = $clientes;
+        $viajes=$viaje;
         require_once "templates/ClienteDetalles.phtml";
     }
-    public function formActualizarCliente($clientes)
+    public function formActualizarCliente($clientes, $isAdmin=false)
     {
         require_once "templates/FormActualizarCliente.phtml";
     }
-    public function formAgregarCliente($cliente)
+    public function formAgregarCliente($cliente, $isAdmin=false)
     {
         $clientes = $cliente;
 
@@ -23,6 +25,6 @@ class ClienteView
     public function showError($error)
     {
         $errores = $error;
-        require_once "templates/errores.phtml";
+        require_once "templates/Errores.phtml";
     }
 }

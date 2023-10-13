@@ -11,6 +11,7 @@ class HomeController
     }
     public function showHome()
     {
-        $this->view->showHome();
+        $isAdmin = AuthHelper::isAdmin();
+        $this->view->showHome($isAdmin);
     }
 }

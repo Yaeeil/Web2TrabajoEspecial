@@ -28,20 +28,20 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clientes` (
-  `ID_Cliente` int(225) NOT NULL,
-  `Nombre` varchar(100) NOT NULL,
-  `Apellido` varchar(100) NOT NULL,
-  `CorreoElectronico` varchar(100) NOT NULL,
-  `FechaNacimiento` date NOT NULL,
-  `DNI` varchar(100) NOT NULL,
-  `Direccion` varchar(100) NOT NULL
+  `id_cliente` int(225) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `correo_electronico` varchar(100) NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `dni` varchar(100) NOT NULL,
+  `direccion` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabla de Clientes para el TPE';
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
-INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`, `FechaNacimiento`, `DNI`, `Direccion`) VALUES
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido`, `correo_electronico`, `fecha_nacimiento`, `dni`, `direccion`) VALUES
 (1, 'Juan', 'Pérez', 'juan.perez@example.com', '1990-05-15', '12345678A', 'Calle A, Ciudad A'),
 (2, 'María', 'García', 'maria.garcia@example.com', '1985-08-20', '98765432B', 'Calle B, Ciudad B'),
 (3, 'Pedro', 'López', 'pedro.lopez@example.com', '1992-03-10', '45678901C', 'Calle C, Ciudad C'),
@@ -71,7 +71,7 @@ INSERT INTO `clientes` (`ID_Cliente`, `Nombre`, `Apellido`, `CorreoElectronico`,
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
-  `NombreUsuario` varchar(255) NOT NULL,
+  `nombre_usuario` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -79,8 +79,8 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `NombreUsuario`, `password`) VALUES
-(1, 'webAdmin', '$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige');
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `password`) VALUES
+(1, 'webadmin', '$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige');
 
 -- --------------------------------------------------------
 
@@ -89,20 +89,20 @@ INSERT INTO `usuarios` (`id_usuario`, `NombreUsuario`, `password`) VALUES
 --
 
 CREATE TABLE `viajes` (
-  `ID_Viaje` int(225) NOT NULL,
-  `Destino` varchar(100) NOT NULL,
-  `FechaSalida` date NOT NULL,
-  `FechaRegreso` date NOT NULL,
-  `Descripcion` text NOT NULL,
-  `Precio` double NOT NULL,
-  `id_Cliente` int(225) NOT NULL
+  `id_viaje` int(225) NOT NULL,
+  `destino` varchar(100) NOT NULL,
+  `fecha_salida` date NOT NULL,
+  `fecha_regreso` date NOT NULL,
+  `descripcion` text NOT NULL,
+  `precio` double NOT NULL,
+  `id_cliente` int(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `viajes`
 --
 
-INSERT INTO `viajes` (`ID_Viaje`, `Destino`, `FechaSalida`, `FechaRegreso`, `Descripcion`, `Precio`, `id_Cliente`) VALUES
+INSERT INTO `viajes` (`id_viaje`, `destino`, `fecha_salida`, `fecha_regreso`, `descripcion`, `precio`, `id_cliente`) VALUES
 (1, 'París', '2023-10-15', '2023-10-20', 'Viaje a París', 1200.5, 11),
 (2, 'Londres', '2023-11-05', '2023-11-10', 'Vacaciones en Londres', 1100.25, 2),
 (3, 'Nueva York', '2023-12-01', '2023-12-10', 'Gran aventura en Nueva York', 1500.75, 17),
@@ -132,7 +132,7 @@ INSERT INTO `viajes` (`ID_Viaje`, `Destino`, `FechaSalida`, `FechaRegreso`, `Des
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  ADD PRIMARY KEY (`ID_Cliente`);
+  ADD PRIMARY KEY (`id_cliente`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -144,8 +144,8 @@ ALTER TABLE `usuarios`
 -- Indices de la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  ADD PRIMARY KEY (`ID_Viaje`),
-  ADD KEY `id_Cliente` (`id_Cliente`);
+  ADD PRIMARY KEY (`id_viaje`),
+  ADD KEY `id_cliente` (`id_cliente`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -155,7 +155,7 @@ ALTER TABLE `viajes`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `ID_Cliente` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_cliente` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -167,7 +167,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  MODIFY `ID_Viaje` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_viaje` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Restricciones para tablas volcadas
@@ -177,7 +177,7 @@ ALTER TABLE `viajes`
 -- Filtros para la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  ADD CONSTRAINT `viajes_ibfk_1` FOREIGN KEY (`id_Cliente`) REFERENCES `clientes` (`ID_Cliente`);
+  ADD CONSTRAINT `viajes_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

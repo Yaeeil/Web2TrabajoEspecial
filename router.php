@@ -32,7 +32,7 @@ switch ($params[0]) {
         break;
     case 'AgregarCliente':
         $controller = new ClienteController();
-        $controller->addCliente($params[1]);
+        $controller->addCliente();
         break;
     case 'FormActualizarCliente':
         $controller = new ClienteController();
@@ -88,6 +88,7 @@ switch ($params[0]) {
         $controller->logOut();
         break;
     default:
-        echo "404 Page Not Found";
+        $controller=new ViajeController();
+        $controller->showError("404 PAGE NOT FOUND");
         break;
 }

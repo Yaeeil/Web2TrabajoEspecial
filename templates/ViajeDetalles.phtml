@@ -21,19 +21,19 @@
     </thead>
     <tbody>
         <tr>
-            <td><?php echo $viajes->ID_Viaje; ?></td>
-            <td><?php echo $viajes->Destino; ?></td>
-            <td><?php echo $viajes->FechaSalida; ?></td>
-            <td><?php echo $viajes->FechaRegreso; ?></td>
-            <td><?php echo $viajes->Descripcion; ?></td>
-            <td><?php echo $viajes->Precio; ?></td>
-            <td><?php echo $viajes->id_Cliente; ?></td>
-            <td> <?php echo $clientes->Nombre; ?></td>
-            <td> <?php echo $clientes->Apellido; ?></td>
+            <td><?php echo $viajes->id_viaje; ?></td>
+            <td><?php echo $viajes->destino; ?></td>
+            <td><?php echo $viajes->fecha_salida; ?></td>
+            <td><?php echo $viajes->fecha_regreso; ?></td>
+            <td><?php echo $viajes->descripcion; ?></td>
+            <td><?php echo $viajes->precio; ?></td>
+            <td><?php echo $viajes->id_cliente; ?></td>
+            <td> <?php echo $clientes->nombre; ?></td>
+            <td> <?php echo $clientes->apellido; ?></td>
             <?php if ($isAdmin) { ?>
                 <td>
-                    <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viajes->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viajes->id_viaje; ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viajes->id_viaje; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             <?php } ?>
         </tr>

@@ -21,13 +21,13 @@
     <tbody>
         <?php foreach ($viajes as $viaje) { ?>
             <tr>
-                <td><?php echo $viaje->Destino; ?></td>
-                <td><a href="<?php echo BASE_URL . 'ViajeDetalles/' . $viaje->ID_Viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+                <td><?php echo $viaje->destino; ?></td>
+                <td><a href="<?php echo BASE_URL . 'ViajeDetalles/' . $viaje->id_viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
 
                 <?php if ($isAdmin) { ?>
                     <td>
-                        <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-warning">Editar</a>
-                        <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viaje->ID_Viaje; ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viaje->id_viaje; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viaje->id_viaje; ?>" class="btn btn-danger">Eliminar</a>
                     </td>
                 <?php } ?>
 

@@ -18,24 +18,18 @@ class ViajeModel
     }
     function getDestinoById($id)
     {
-        $query = $this->db->prepare("SELECT * FROM viajes WHERE ID_Viaje=?");
+        $query = $this->db->prepare("SELECT * FROM viajes WHERE id_viaje=?");
         $query->execute([$id]);
         $viajes = $query->fetch(PDO::FETCH_OBJ);
         return $viajes;
     }
 
-    //y este
-    function getAllClientes()
-    {
-        $queryCliente = $this->db->prepare("SELECT * FROM clientes ");
-        $queryCliente->execute();
-        $clientes = $queryCliente->fetchAll(PDO::FETCH_OBJ);
-        return $clientes;
-    }
+
+   
 
     function getDetails($id)
     {
-        $query = $this->db->prepare("SELECT * FROM viajes WHERE ID_Viaje = ?");
+        $query = $this->db->prepare("SELECT * FROM viajes WHERE id_viaje = ?");
         $query->execute([$id]);
         $viajes = $query->fetch(PDO::FETCH_OBJ);
         return $viajes;
@@ -43,15 +37,22 @@ class ViajeModel
 
     function addViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente)
     {
-        $query = $this->db->prepare('INSERT INTO viajes (Destino, FechaSalida, FechaRegreso, Descripcion, Precio, Id_Cliente) VALUES (?, ?, ?, ?, ?, ?)');
+        $query = $this->db->prepare('INSERT INTO viajes (destino, fecha_salida, fecha_regreso, descripcion, precio, id_cliente) VALUES (?, ?, ?, ?, ?, ?)');
         $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $cliente]);
         return $this->db->lastInsertId();
     }
 
+    function getViajesByClienteId($id)
+    {
+        $query = $this->db->prepare("SELECT * FROM viajes WHERE id_cliente = ?");
+        $query->execute([$id]);
+        $viajes = $query->fetchAll(PDO::FETCH_OBJ);
+        return $viajes;
+    }
 
     function deleteViaje($id)
     {
-        $query = $this->db->prepare('DELETE FROM viajes WHERE ID_Viaje = ?');
+        $query = $this->db->prepare('DELETE FROM viajes WHERE id_viaje = ?');
         $query->execute([$id]);
     }
 
@@ -59,7 +60,7 @@ class ViajeModel
 
     function updateViaje($destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id)
     {
-        $query = $this->db->prepare('UPDATE viajes SET Destino = ?, FechaSalida = ?, FechaRegreso = ?, Descripcion = ?, Precio = ?, id_Cliente = ? WHERE ID_Viaje = ?');
+        $query = $this->db->prepare('UPDATE viajes SET destino = ?, fecha_salida = ?, fecha_regreso = ?, descripcion = ?, precio = ?, id_cliente = ? WHERE id_viaje = ?');
         $query->execute([$destino, $fechaS, $fechaR, $descripcion, $precio, $cliente, $id]);
     }
 }

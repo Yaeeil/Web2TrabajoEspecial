@@ -19,12 +19,12 @@
   <tbody>
     <?php foreach ($clientes as $cliente) { ?>
       <tr>
-        <td><?php echo $cliente->Nombre; ?></td>
-        <td><a href="<?php echo BASE_URL . 'ClienteDetalles/' . $cliente->ID_Cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+        <td><?php echo $cliente->nombre; ?></td>
+        <td><a href="<?php echo BASE_URL . 'ClienteDetalles/' . $cliente->id_cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
         <?php if ($isAdmin) { ?>
           <td>
-            <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-warning">Editar</a>
-            <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->ID_Cliente; ?>" class="btn btn-danger">Eliminar</a>
+            <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->id_cliente; ?>" class="btn btn-warning">Editar</a>
+            <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->id_cliente; ?>" class="btn btn-danger">Eliminar</a>
           </td>
         <?php } ?>
       </tr>

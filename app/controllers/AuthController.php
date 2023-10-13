@@ -16,12 +16,14 @@ class AuthController
 
     public function showLogin()
     {
-        $this->view->showLogin();
+        $isAdmin = AuthHelper::isAdmin();
+        $this->view->showLogin(null, $isAdmin);
     }
 
     public function auth()
     {
-        $nombre = $_POST['nombreUsuario'];
+        $isAdmin = AuthHelper::isAdmin();
+        $nombre = $_POST['nombre_usuario'];
         $password = $_POST['password'];
 
         if (empty($nombre) || empty($password)) {
@@ -35,7 +37,7 @@ class AuthController
             AuthHelper::login($user);
             header('Location: ' . BASE_URL);
         } else {
-            $this->view->showLogin('Usuario inválido');
+            $this->view->showLogin('Usuario inválido', $isAdmin);
         }
     }
 
