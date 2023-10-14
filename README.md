@@ -21,5 +21,5 @@ los datos de cada viaje, que esta relacionada con una tabla Clientes que contend
 
 Diagrama de Entidad de Relaciones (DER):
 
+![DERActual](https://github.com/Yaeeil/Web2TrabajoEspecial/assets/142358344/df673192-943f-42a1-845a-5e677bf0c4ed)
 
-![DER](https://github.com/Yaeeil/Web2TrabajoEspecial/assets/142358344/38d80b60-2bdd-4adc-9e5b-79bf3223cb2a)
