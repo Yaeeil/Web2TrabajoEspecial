@@ -6,6 +6,7 @@ require_once './app/controllers/ClienteController.php';
 require_once './app/controllers/ViajeController.php';
 require_once './app/controllers/AuthController.php';
 
+
 $action = 'Home'; // acción por defecto
 if (!empty($_GET['action'])) {
     $action = $_GET['action'];
@@ -88,7 +89,7 @@ switch ($params[0]) {
         $controller->logOut();
         break;
     default:
-        $controller=new ViajeController();
+        $controller = new ViajeController();
         $controller->showError("404 PAGE NOT FOUND");
         break;
 }

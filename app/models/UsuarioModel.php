@@ -1,9 +1,8 @@
 <?php
-require_once './models/Model.php';
+require_once './app/models/Model.php';
 
 class UsuarioModel extends Model
 {
-    private $db;
 
     function __construct()
     {

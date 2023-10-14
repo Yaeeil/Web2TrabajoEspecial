@@ -1,8 +1,7 @@
 <?php
-require_once "./models/Model.php";
+require_once "./app/models/Model.php";
 class ViajeModel extends Model
 {
-    private $db;
 
     function __construct()
     {

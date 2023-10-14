@@ -1,20 +1,26 @@
 <?php
-require_once "database/db.php";
-    class Model {
-        protected $db;
+require_once "./database/config.php";
+class Model
+{
+  protected $db;
 
-        function __construct() {
-            $this->db = new PDO('mysql:host='. MYSQL_HOST .';dbname='. MYSQL_DB .';charset=utf8', MYSQL_USER, MYSQL_PASS);
-            $this->deploy();
-        }
-
-        function deploy() {
-            // Chequear si hay tablas
-            $query = $this->db->query('SHOW TABLES');
-            $tables = $query->fetchAll(); // Nos devuelve todas las tablas de la db
-            if(count($tables)==0) {
-                // Si no hay crearlas
-                $sql =<<<END
+  function __construct()
+  {
+    $this->db = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASS);
+    $this->deploy();
+  }
+  function deploy()
+  {
+    // Chequear si hay tablas
+    $query = $this->db->query('SHOW TABLES');
+    $tables = $query->fetchAll(); // Nos devuelve todas las tablas de la db
+    if (count($tables) == 0) {
+      // Si no hay crearlas
+      $sql = <<<END
+                --
+                -- Estructura de tabla para la tabla `clientes`
+                --
+                
                 CREATE TABLE `clientes` (
                     `id_cliente` int(225) NOT NULL,
                     `nombre` varchar(100) NOT NULL,
@@ -68,7 +74,7 @@ require_once "database/db.php";
                   --
                   
                   INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `password`) VALUES
-                  (1, 'webadmin', '$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige');
+                  (1, 'webadmin', "$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige");
                   
                   -- --------------------------------------------------------
                   
@@ -168,8 +174,7 @@ require_once "database/db.php";
                     ADD CONSTRAINT `viajes_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`);
                   COMMIT;
                 END;
-                $this->db->query($sql);
-            }
-            
-        }
+      $this->db->query($sql);
     }
+  }
+}
