@@ -1,10 +1,9 @@
 <?php
-require_once './models/Model.php';
+require_once 'Model.php';
 
 class UsuarioModel extends Model
 {
-    private $db;
-
+  
     function __construct()
     {
         parent::__construct();
