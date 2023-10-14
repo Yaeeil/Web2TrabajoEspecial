@@ -1,6 +1,6 @@
 <?php
 require_once './database/config.php';
-
+//este no iria mas por las dudas no lo borro
 function setupDB()
 {
   $db = new PDO(DB_URL, DB_USER, DB_PASS);

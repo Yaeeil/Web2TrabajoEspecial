@@ -1,13 +1,13 @@
 <?php
-require_once './database/db.php';
-class clienteModel
+require_once './models/Model.php';
+class clienteModel extends Model
 {
-    private $db;
 
     function __construct()
     {
-        $this->db = setupDB();
+        parent::__construct(); 
     }
+    
     function getAllClientes()
     {
         $query = $this->db->prepare('SELECT * FROM clientes');

@@ -1,13 +1,13 @@
 <?php
-require_once './database/db.php';
+require_once './models/Model.php';
 
-class UsuarioModel
+class UsuarioModel extends Model
 {
     private $db;
 
     function __construct()
     {
-        $this->db = setupDB();
+        parent::__construct();
     }
 
     public function getByNombre($nombre)

@@ -1,11 +1,13 @@
 <?php
-class ViajeModel
+require_once "./models/Model.php";
+class ViajeModel extends Model
 {
     private $db;
 
     function __construct()
     {
-        $this->db = setupDB();
+        parent::__construct();
+    
     }
 
 

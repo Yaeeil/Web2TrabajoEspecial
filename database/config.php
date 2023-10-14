@@ -1,5 +1,7 @@
 <?php
 
-define('DB_URL', 'mysql:host=localhost;charset=utf8');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+    const MYSQL_USER = 'root';
+    const MYSQL_PASS = '';
+    const MYSQL_DB = 'web2tpe';
+    const MYSQL_HOST = 'localhost';
+
