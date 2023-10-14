@@ -1,5 +1,5 @@
 # Web2TrabajoEspecial
-Integrantes:
+Integrantes del grupo:
 
 Orellano Yael Eileen
 Email:yael.e.orellano@gmail.com
