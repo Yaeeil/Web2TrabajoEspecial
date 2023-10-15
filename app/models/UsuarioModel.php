@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 require_once './app/models/Model.php';
 
 class UsuarioModel extends Model
@@ -8,6 +9,13 @@ class UsuarioModel extends Model
     {
         parent::__construct();
     }
+=======
+require_once 'Model.php';
+
+class UsuarioModel extends Model
+{
+  
+>>>>>>> 7f5f8128820944f75a468cef542a9b6bf2863132
 
     public function getByNombre($nombre)
     {

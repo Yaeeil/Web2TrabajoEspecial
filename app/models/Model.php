@@ -1,8 +1,14 @@
 <?php
+<<<<<<< HEAD
 require_once "./database/config.php";
 class Model
 {
   protected $db;
+=======
+require_once "database/config.php";
+    class Model {
+        protected $db;
+>>>>>>> 7f5f8128820944f75a468cef542a9b6bf2863132
 
   function __construct()
   {
@@ -74,7 +80,7 @@ class Model
                   --
                   
                   INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `password`) VALUES
-                  (1, 'webadmin', "$2y$10$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige");
+                  (1, 'webadmin', '$2y$10\$mBQ9qu.flqPxRN.687b8n.7eiTzL7kDZ7FTjkyYgv/xkvd7Pkuige');
                   
                   -- --------------------------------------------------------
                   
