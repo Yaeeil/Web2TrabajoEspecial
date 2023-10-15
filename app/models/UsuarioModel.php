@@ -4,10 +4,6 @@ require_once 'Model.php';
 class UsuarioModel extends Model
 {
   
-    function __construct()
-    {
-        parent::__construct();
-    }
 
     public function getByNombre($nombre)
     {

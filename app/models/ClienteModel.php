@@ -3,10 +3,6 @@ require_once 'Model.php';
 class clienteModel extends Model
 {
 
-    function __construct()
-    {
-        parent::__construct(); 
-    }
     
     function getAllClientes()
     {

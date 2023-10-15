@@ -4,11 +4,6 @@ class ViajeModel extends Model
 {
    
 
-    function __construct()
-    {
-        parent::__construct();
-    
-    }
 
 
     function getDestino()
