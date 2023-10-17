@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 require_once './app/models/Model.php';
-=======
-require_once 'Model.php';
->>>>>>> 7f5f8128820944f75a468cef542a9b6bf2863132
 class clienteModel extends Model
 {
 

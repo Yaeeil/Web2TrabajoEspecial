@@ -1,14 +1,7 @@
 <?php
-<<<<<<< HEAD
-require_once "./database/config.php";
-class Model
-{
-  protected $db;
-=======
 require_once "database/config.php";
     class Model {
         protected $db;
->>>>>>> 7f5f8128820944f75a468cef542a9b6bf2863132
 
   function __construct()
   {
