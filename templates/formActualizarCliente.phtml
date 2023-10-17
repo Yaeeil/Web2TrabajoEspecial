@@ -1,24 +1,24 @@
 <?php require_once 'templates/Header.phtml'; ?>
 
-<form action="ActualizarCliente/<?php echo $clientes->id_cliente; ?>" method="post" required>
+<form action="ActualizarCliente/<?= $clientes->id_cliente; ?>" method="post" required>
     <label for="nombre">Nombre:</label>
-    <input type="text" class="form-control" id="nombre" name="nombre" value="<?php echo $clientes->nombre; ?>" required>
+    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $clientes->nombre; ?>" required>
 
     <label class="form-label" for="apellido">Apellido:</label>
-    <input type="text" class="form-control" id="apellido" name="apellido" value="<?php echo $clientes->apellido; ?>" required>
+    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $clientes->apellido; ?>" required>
 
 
     <label for="correoElectronico">Correo Electronico:</label>
-    <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" value="<?php echo $clientes->correo_electronico; ?>" required>
+    <input type="email" class="form-control" id="correoElectronico" name="correoElectronico" value="<?= $clientes->correo_electronico; ?>" required>
 
     <label class="form-label" for="fechaDeNacimiento">Fecha de nacimiento:</label>
-    <input type="date" class="form-control" name="fechaDeNacimiento" value="<?php echo $clientes->fecha_nacimiento; ?>" required></textarea>
+    <input type="date" class="form-control" name="fechaDeNacimiento" value="<?= $clientes->fecha_nacimiento; ?>" required></textarea>
 
     <label for="dni">Documento:</label>
-    <input type="text" class="form-control" id="dni" name="dni" value="<?php echo $clientes->dni; ?>" required>
+    <input type="text" class="form-control" id="dni" name="dni" value="<?= $clientes->dni; ?>" required>
 
     <label for="direccion">Direccion:</label>
-    <input type="text" class="form-control" id="direccion" name="direccion" value="<?php echo $clientes->direccion; ?>" required>
+    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= $clientes->direccion; ?>" required>
 
     <button class="btn btn-success" type="submit">Actualizar Cliente</button>
 </form>

@@ -1,32 +1,32 @@
 <?php require_once 'templates/Header.phtml'; ?>
 
-<form action="ActualizarViaje/<?php echo $viaje->id_viaje; ?>" method="POST">
+<form action="ActualizarViaje/<?= $viaje->id_viaje; ?>" method="POST">
     <div>
         <label for="destino">Destino:</label>
-        <input type="text" class="form-control" id="destino" name="destino" value="<?php echo $viaje->destino; ?>">
+        <input type="text" class="form-control" id="destino" name="destino" value="<?= $viaje->destino; ?>">
     </div>
     <div>
         <label class="form-label" for="fechaSalida">Fecha de Salida:</label>
-        <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" value="<?php echo $viaje->fecha_salida; ?>" required>
+        <input type="date" class="form-control" id="fechaSalida" name="fechaSalida" value="<?= $viaje->fecha_salida; ?>" required>
     </div>
     <div>
         <label for="fechaRegreso">Fecha de Regreso:</label>
-        <input type="date" class="form-control" id="fechaRegreso" name="fechaRegreso" value="<?php echo $viaje->fecha_regreso; ?>" required>
+        <input type="date" class="form-control" id="fechaRegreso" name="fechaRegreso" value="<?= $viaje->fecha_regreso; ?>" required>
     </div>
     <div>
         <label class="form-label" for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion" value="<?php echo $viaje->descripcion; ?>" required>
+        <input type="text" id="descripcion" name="descripcion" value="<?= $viaje->descripcion; ?>" required>
     </div>
     <div>
         <label for="precio">Precio:</label>
-        <input type="number" class="form-control" id="precio" name="precio" step="0.01" value="<?php echo $viaje->precio; ?>" required>
+        <input type="number" class="form-control" id="precio" name="precio" step="0.01" value="<?= $viaje->precio; ?>" required>
     </div>
     <div>
         <label class="form-label" for="cliente">Cliente:</label>
         <select class="form-control" id="cliente" name="cliente" required>
             <?php foreach ($clientes as $cliente) { ?>
-                <option value="<?php echo $cliente->id_cliente; ?>" <?= $cliente->id_cliente == $viaje->id_cliente ? ' selected="selected"' : ''; ?>>
-                    <?php echo $cliente->nombre; ?>
+                <option value="<?= $cliente->id_cliente; ?>" <?= $cliente->id_cliente == $viaje->id_cliente ? ' selected="selected"' : ''; ?>>
+                    <?= $cliente->nombre; ?>
                 </option>
             <?php } ?>
         </select>

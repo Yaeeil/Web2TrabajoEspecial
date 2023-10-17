@@ -2,7 +2,7 @@
 
 <div class="d-grid gap-2 col-6 mx-auto">
   <?php if ($isAdmin) { ?>
-    <a href="<?php echo BASE_URL . 'FormAgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
+    <a href="<?= BASE_URL . 'FormAgregarCliente/'; ?>" class="btn btn-success btn-sm">Agregar Cliente</a>
   <?php } ?>
 </div>
 
@@ -19,12 +19,12 @@
   <tbody>
     <?php foreach ($clientes as $cliente) { ?>
       <tr>
-        <td><?php echo $cliente->nombre; ?></td>
-        <td><a href="<?php echo BASE_URL . 'ClienteDetalles/' . $cliente->id_cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+        <td><?= $cliente->nombre; ?></td>
+        <td><a href="<?= BASE_URL . 'ClienteDetalles/' . $cliente->id_cliente; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
         <?php if ($isAdmin) { ?>
           <td>
-            <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->id_cliente; ?>" class="btn btn-warning">Editar</a>
-            <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->id_cliente; ?>" class="btn btn-danger">Eliminar</a>
+            <a href="<?= BASE_URL . 'FormActualizarCliente/' . $cliente->id_cliente; ?>" class="btn btn-warning">Editar</a>
+            <a href="<?= BASE_URL . 'EliminarCliente/' . $cliente->id_cliente; ?>" class="btn btn-danger">Eliminar</a>
           </td>
         <?php } ?>
       </tr>
