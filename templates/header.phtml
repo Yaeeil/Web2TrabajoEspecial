@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <base href="<?php echo BASE_URL ?>">
+        <base href="<?= BASE_URL ?>">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilos.css">
@@ -14,13 +14,13 @@
     <header>
         <div class="barraNav">
             <h1>Travel Around The World</h1>
-            <a href="<?php echo BASE_URL . 'Home'; ?>">Home</a>
-            <a href="<?php echo BASE_URL . 'Clientes'; ?>">Clientes</a>
-            <a href="<?php echo BASE_URL . 'Viajes'; ?>">Viajes</a>
+            <a href="<?= BASE_URL . 'Home'; ?>">Home</a>
+            <a href="<?= BASE_URL . 'Clientes'; ?>">Clientes</a>
+            <a href="<?= BASE_URL . 'Viajes'; ?>">Viajes</a>
             <?php if (!$isAdmin){ ?>
-                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'LogIn'; ?>">Ingresar</a>
+                <a class="nav-link" aria-current="page" href="<?= BASE_URL . 'LogIn'; ?>">Ingresar</a>
             <?php }else{ ?>
-                <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . 'LogOut'; ?>">Logout</a>
+                <a class="nav-link" aria-current="page" href="<?= BASE_URL . 'LogOut'; ?>">Logout</a>
             <?php } ?>
     </header>
 

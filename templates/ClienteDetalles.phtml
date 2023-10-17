@@ -19,17 +19,17 @@
     </thead>
     <tbody>
         <tr>
-            <td><?php echo $cliente->id_cliente; ?></td>
-            <td><?php echo $cliente->nombre; ?></td>
-            <td><?php echo $cliente->apellido; ?></td>
-            <td><?php echo $cliente->correo_electronico; ?></td>
-            <td><?php echo $cliente->fecha_nacimiento; ?></td>
-            <td><?php echo $cliente->dni; ?></td>
-            <td><?php echo $cliente->direccion; ?></td>
+            <td><?= $cliente->id_cliente; ?></td>
+            <td><?= $cliente->nombre; ?></td>
+            <td><?= $cliente->apellido; ?></td>
+            <td><?= $cliente->correo_electronico; ?></td>
+            <td><?= $cliente->fecha_nacimiento; ?></td>
+            <td><?= $cliente->dni; ?></td>
+            <td><?= $cliente->direccion; ?></td>
             <?php if ($isAdmin) { ?>
                 <td>
-                    <a href="<?php echo BASE_URL . 'FormActualizarCliente/' . $cliente->id_cliente; ?>" class="btn btn-warning">Editar</a>
-                    <a href="<?php echo BASE_URL . 'EliminarCliente/' . $cliente->id_cliente; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="<?= BASE_URL . 'FormActualizarCliente/' . $cliente->id_cliente; ?>" class="btn btn-warning">Editar</a>
+                    <a href="<?= BASE_URL . 'EliminarCliente/' . $cliente->id_cliente; ?>" class="btn btn-danger">Eliminar</a>
                 </td>
             <?php } ?>
         </tr>

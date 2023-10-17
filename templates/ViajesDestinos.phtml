@@ -3,7 +3,7 @@
 <?php if ($isAdmin) { ?>
     <div class="d-grid gap-2 col-6 mx-auto">
         <?php if ($isAdmin) { ?>
-            <a href="<?php echo BASE_URL . 'FormAgregarViaje/'; ?>" class="btn btn-success btn-sm">Agregar Viaje</a>
+            <a href="<?= BASE_URL . 'FormAgregarViaje/'; ?>" class="btn btn-success btn-sm">Agregar Viaje</a>
         <?php } ?>
     </div>
 <?php } ?>
@@ -21,13 +21,13 @@
     <tbody>
         <?php foreach ($viajes as $viaje) { ?>
             <tr>
-                <td><?php echo $viaje->destino; ?></td>
-                <td><a href="<?php echo BASE_URL . 'ViajeDetalles/' . $viaje->id_viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
+                <td><?= $viaje->destino; ?></td>
+                <td><a href="<?= BASE_URL . 'ViajeDetalles/' . $viaje->id_viaje; ?>" class="btn btn-primary btn-sm">Ver Detalle</a></td>
 
                 <?php if ($isAdmin) { ?>
                     <td>
-                        <a href="<?php echo BASE_URL . 'FormActualizarViaje/' . $viaje->id_viaje; ?>" class="btn btn-warning">Editar</a>
-                        <a href="<?php echo BASE_URL . 'EliminarViaje/' . $viaje->id_viaje; ?>" class="btn btn-danger">Eliminar</a>
+                        <a href="<?= BASE_URL . 'FormActualizarViaje/' . $viaje->id_viaje; ?>" class="btn btn-warning">Editar</a>
+                        <a href="<?= BASE_URL . 'EliminarViaje/' . $viaje->id_viaje; ?>" class="btn btn-danger">Eliminar</a>
                     </td>
                 <?php } ?>
 
