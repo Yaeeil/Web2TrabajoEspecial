@@ -5,4 +5,5 @@ class AuthView
     {
         require './templates/LogIn.phtml';
     }
+    
 }

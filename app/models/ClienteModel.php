@@ -1,5 +1,5 @@
 <?php
-require_once 'Model.php';
+require_once './app/models/Model.php';
 class clienteModel extends Model
 {
     

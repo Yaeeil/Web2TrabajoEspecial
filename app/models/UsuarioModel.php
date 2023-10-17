@@ -1,9 +1,13 @@
 <?php
-require_once 'Model.php';
+require_once './app/models/Model.php';
 
 class UsuarioModel extends Model
 {
-  
+
+    function __construct()
+    {
+        parent::__construct();
+    }
 
     public function getByNombre($nombre)
     {
