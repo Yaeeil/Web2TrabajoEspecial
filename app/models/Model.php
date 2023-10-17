@@ -1,25 +1,26 @@
 <?php
 require_once "database/config.php";
-    class Model {
-        protected $db;
 
-  function __construct()
-  {
-    $this->db = new PDO('mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB . ';charset=utf8', MYSQL_USER, MYSQL_PASS);
-    $this->deploy();
-  }
-  function deploy()
-  {
-    // Chequear si hay tablas
-    $query = $this->db->query('SHOW TABLES');
-    $tables = $query->fetchAll(); // Nos devuelve todas las tablas de la db
-    if (count($tables) == 0) {
-      // Si no hay crearlas
-      $sql = <<<END
-                --
+class Model {
+    protected $db;
+
+    function __construct() {
+        $this->db = new PDO('mysql:host=' . MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+        // Verifica si la base de datos existe, si no lo hace la crea
+        $this->db->exec('CREATE DATABASE IF NOT EXISTS ' . MYSQL_DB);
+        $this->db->exec('USE ' . MYSQL_DB);
+        $this->deploy();
+    }
+
+    function deploy() {
+        // Chequear si hay tablas
+        $query = $this->db->query('SHOW TABLES');
+        $tables = $query->fetchAll();
+
+        if (count($tables) == 0) {
+            // Si no hay tablas, crea las tablas y los datos
+            $sql = <<<END
                 -- Estructura de tabla para la tabla `clientes`
-                --
-                
                 CREATE TABLE `clientes` (
                     `id_cliente` int(225) NOT NULL,
                     `nombre` varchar(100) NOT NULL,
