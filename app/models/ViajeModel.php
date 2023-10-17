@@ -5,7 +5,6 @@ class ViajeModel extends Model
    
 
 
-
     function getDestino()
     {
         $query = $this->db->prepare("SELECT * FROM viajes");

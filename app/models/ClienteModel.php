@@ -2,7 +2,7 @@
 require_once 'Model.php';
 class clienteModel extends Model
 {
-
+    
     
     function getAllClientes()
     {
